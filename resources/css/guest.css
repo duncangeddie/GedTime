@@ -1,0 +1,443 @@
+@import "tailwindcss";
+
+:root {
+    --GuestPageBackground: #ffffff;
+    --GuestHeaderBackground: #000000;
+    --GuestFooterBackground: #000000;
+    --DashboardPageBackground: #ffffff;
+    --AppHeaderBackground: #000000;
+    --LoginPageBackground: #ffffff;
+    --RegisterPageBackground: #ffffff;
+    --WelcomePageBackground: #ffffff;
+    --GuestHeaderButtonText: #ffffff;
+    --GuestHeaderButtonBorder: #ffffff;
+    --GuestHeaderButtonBackground: transparent;
+    --GuestHeaderButtonHoverBackground: #ffffff;
+    --GuestHeaderButtonHoverText: #000000;
+    --LoginCardBackground: #ffffff;
+    --LoginCardBorder: #e5e7eb;
+    --LoginCardShadow: 0 10px 30px rgb(0 0 0 / 0.08);
+    --LoginHeadingText: #111827;
+    --LoginSubheadingText: #6b7280;
+    --LoginLabelText: #111827;
+    --LoginInputBorder: #d1d5db;
+    --LoginInputText: #111827;
+    --LoginInputPlaceholder: #9ca3af;
+    --LoginInputBackground: #ffffff;
+    --LoginInputFocusBorder: #111827;
+    --LoginButtonBackground: #000000;
+    --LoginButtonText: #ffffff;
+    --LoginButtonHoverBackground: #1f2937;
+    --LoginErrorText: #dc2626;
+    --RegisterCardBackground: #ffffff;
+    --RegisterCardBorder: #e5e7eb;
+    --RegisterCardShadow: 0 10px 30px rgb(0 0 0 / 0.08);
+    --RegisterHeadingText: #111827;
+    --RegisterSubheadingText: #6b7280;
+    --RegisterLabelText: #111827;
+    --RegisterInputBorder: #d1d5db;
+    --RegisterInputText: #111827;
+    --RegisterInputPlaceholder: #9ca3af;
+    --RegisterInputBackground: #ffffff;
+    --RegisterInputFocusBorder: #111827;
+    --RegisterButtonBackground: #000000;
+    --RegisterButtonText: #ffffff;
+    --RegisterButtonHoverBackground: #1f2937;
+    --RegisterErrorText: #dc2626;
+}
+
+html,
+body {
+    min-height: 100%;
+}
+
+body {
+    margin: 0;
+    font-family: "Figtree", sans-serif;
+    background-color: var(--GuestPageBackground);
+}
+
+.GuestHeader {
+    width: 100%;
+    background-color: var(--GuestHeaderBackground);
+}
+
+.GuestHeaderContainer {
+    width: 100%;
+    max-width: 90rem;
+    margin: 0 auto;
+}
+
+.GuestHeaderInner {
+    min-height: 5rem;
+}
+
+.GuestHeaderLogo {
+    display: block;
+    width: auto;
+    height: 2.75rem;
+}
+
+.GuestHeaderActions {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+}
+
+.GuestHeaderButton {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 2.75rem;
+    padding: 0.75rem 1.25rem;
+    border: 1px solid var(--GuestHeaderButtonBorder);
+    border-radius: 9999px;
+    background-color: var(--GuestHeaderButtonBackground);
+    color: var(--GuestHeaderButtonText);
+    font-size: 0.95rem;
+    font-weight: 600;
+    line-height: 1;
+    text-decoration: none;
+    transition: all 0.2s ease-in-out;
+}
+
+.GuestHeaderButton:hover {
+    background-color: var(--GuestHeaderButtonHoverBackground);
+    color: var(--GuestHeaderButtonHoverText);
+}
+
+.GuestFooter {
+    width: 100%;
+    background-color: var(--GuestFooterBackground);
+}
+
+.GuestFooterContainer {
+    width: 100%;
+    max-width: 90rem;
+    margin: 0 auto;
+}
+
+.GuestFooterInner {
+    min-height: 5rem;
+}
+
+.GuestFooterLogo {
+    display: block;
+    width: auto;
+    height: 2.5rem;
+}
+
+.WelcomePage {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    background-color: var(--WelcomePageBackground);
+}
+
+.WelcomePageMain {
+    flex: 1;
+    background-color: var(--WelcomePageBackground);
+}
+
+.DashboardPage {
+    min-height: 100vh;
+    background-color: var(--DashboardPageBackground);
+}
+
+.AppHeader {
+    width: 100%;
+    background-color: var(--AppHeaderBackground);
+}
+
+.AppHeaderContainer {
+    width: 100%;
+    max-width: 90rem;
+    margin: 0 auto;
+}
+
+.AppHeaderInner {
+    min-height: 5rem;
+}
+
+.AppHeaderLogo {
+    display: block;
+    width: auto;
+    height: 2.75rem;
+}
+
+.LoginPage {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    background-color: var(--LoginPageBackground);
+}
+
+.LoginPageMain {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    padding: 3rem 1.5rem;
+}
+
+.LoginCard {
+    width: 100%;
+    max-width: 32rem;
+    padding: 2rem;
+    border: 1px solid var(--LoginCardBorder);
+    border-radius: 1.5rem;
+    background-color: var(--LoginCardBackground);
+    box-shadow: var(--LoginCardShadow);
+}
+
+.LoginCardHeader {
+    margin-bottom: 1.5rem;
+    text-align: center;
+}
+
+.LoginHeading {
+    margin: 0;
+    color: var(--LoginHeadingText);
+    font-size: 1.875rem;
+    font-weight: 700;
+    line-height: 1.2;
+}
+
+.LoginSubheading {
+    margin: 0.5rem 0 0;
+    color: var(--LoginSubheadingText);
+    font-size: 0.95rem;
+    line-height: 1.5;
+}
+
+.LoginForm {
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+}
+
+.LoginField {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.LoginLabel {
+    display: block;
+    color: var(--LoginLabelText);
+    font-size: 0.95rem;
+    font-weight: 600;
+    line-height: 1.4;
+}
+
+.LoginInput {
+    display: block;
+    width: 100%;
+    min-height: 3.25rem;
+    padding: 0.875rem 1rem;
+    border: 1px solid var(--LoginInputBorder);
+    border-radius: 0.875rem;
+    background-color: var(--LoginInputBackground);
+    color: var(--LoginInputText);
+    font-size: 0.95rem;
+    line-height: 1.4;
+    outline: none;
+    box-sizing: border-box;
+}
+
+.LoginInput::placeholder {
+    color: var(--LoginInputPlaceholder);
+}
+
+.LoginInput:focus {
+    border-color: var(--LoginInputFocusBorder);
+}
+
+.LoginButton {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    min-height: 3.25rem;
+    padding: 0.875rem 1.25rem;
+    border: 1px solid var(--LoginButtonBackground);
+    border-radius: 0.875rem;
+    background-color: var(--LoginButtonBackground);
+    color: var(--LoginButtonText);
+    font-size: 0.95rem;
+    font-weight: 600;
+    line-height: 1;
+    text-decoration: none;
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+}
+
+.LoginButton:hover {
+    background-color: var(--LoginButtonHoverBackground);
+    border-color: var(--LoginButtonHoverBackground);
+}
+
+.LoginError {
+    margin: 0;
+    color: var(--LoginErrorText);
+    font-size: 0.875rem;
+    line-height: 1.4;
+}
+
+.RegisterPage {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    background-color: var(--RegisterPageBackground);
+}
+
+.RegisterPageMain {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    padding: 3rem 1.5rem;
+}
+
+.RegisterCard {
+    width: 100%;
+    max-width: 32rem;
+    padding: 2rem;
+    border: 1px solid var(--RegisterCardBorder);
+    border-radius: 1.5rem;
+    background-color: var(--RegisterCardBackground);
+    box-shadow: var(--RegisterCardShadow);
+}
+
+.RegisterCardHeader {
+    margin-bottom: 1.5rem;
+    text-align: center;
+}
+
+.RegisterHeading {
+    margin: 0;
+    color: var(--RegisterHeadingText);
+    font-size: 1.875rem;
+    font-weight: 700;
+    line-height: 1.2;
+}
+
+.RegisterSubheading {
+    margin: 0.5rem 0 0;
+    color: var(--RegisterSubheadingText);
+    font-size: 0.95rem;
+    line-height: 1.5;
+}
+
+.RegisterForm {
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+}
+
+.RegisterField {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.RegisterLabel {
+    display: block;
+    color: var(--RegisterLabelText);
+    font-size: 0.95rem;
+    font-weight: 600;
+    line-height: 1.4;
+}
+
+.RegisterInput {
+    display: block;
+    width: 100%;
+    min-height: 3.25rem;
+    padding: 0.875rem 1rem;
+    border: 1px solid var(--RegisterInputBorder);
+    border-radius: 0.875rem;
+    background-color: var(--RegisterInputBackground);
+    color: var(--RegisterInputText);
+    font-size: 0.95rem;
+    line-height: 1.4;
+    outline: none;
+    box-sizing: border-box;
+}
+
+.RegisterInput::placeholder {
+    color: var(--RegisterInputPlaceholder);
+}
+
+.RegisterInput:focus {
+    border-color: var(--RegisterInputFocusBorder);
+}
+
+.RegisterButton {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    min-height: 3.25rem;
+    padding: 0.875rem 1.25rem;
+    border: 1px solid var(--RegisterButtonBackground);
+    border-radius: 0.875rem;
+    background-color: var(--RegisterButtonBackground);
+    color: var(--RegisterButtonText);
+    font-size: 0.95rem;
+    font-weight: 600;
+    line-height: 1;
+    text-decoration: none;
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+}
+
+.RegisterButton:hover {
+    background-color: var(--RegisterButtonHoverBackground);
+    border-color: var(--RegisterButtonHoverBackground);
+}
+
+.RegisterError {
+    margin: 0;
+    color: var(--RegisterErrorText);
+    font-size: 0.875rem;
+    line-height: 1.4;
+}
+
+:root {
+    --AppFooterBackground: #000000;
+}
+
+.DashboardPage {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    background-color: var(--DashboardPageBackground);
+}
+
+.DashboardPageMain {
+    flex: 1;
+    background-color: var(--DashboardPageBackground);
+}
+
+.AppFooter {
+    width: 100%;
+    background-color: var(--AppFooterBackground);
+}
+
+.AppFooterContainer {
+    width: 100%;
+    max-width: 90rem;
+    margin: 0 auto;
+}
+
+.AppFooterInner {
+    min-height: 5rem;
+}
+
+.AppFooterLogo {
+    display: block;
+    width: auto;
+    height: 2.5rem;
+}

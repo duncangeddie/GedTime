@@ -1,0 +1,40 @@
+GedTime/
+├── app/Http/Controllers/
+│   ├── AuthController.php
+│   │   ├── ShowLogin()        -> Loads login page variables and returns login view
+│   │   ├── Login()            -> Validates credentials and logs user in
+│   │   ├── ShowRegister()     -> Loads register page variables and returns register view
+│   │   ├── Register()         -> Validates input, creates user, logs user in
+│   │   └── Logout()           -> Logs user out and redirects to login
+│   ├── ButtonController.php
+│   │   ├── AuthButtons()      -> Returns Login and Register button labels and links
+│   │   └── NavigationButtons()-> Returns Projects, Timesheet, Reports, Settings button data
+│   └── ComponentController.php
+│       ├── WelcomeHeaderLogo()-> Returns full logo path for guest header
+│       ├── AppHeaderLogo()    -> Returns full logo path for app header
+│       ├── GuestFooterLogo()  -> Returns short logo path for guest footer
+│       └── AppFooterLogo()    -> Returns short logo path for app footer
+├── bootstrap/
+│   └── app.php                -> Laravel bootstrap and auth/guest redirect config
+├── public/images/
+│   ├── logo.png               -> Main full logo
+│   └── logo_short.png         -> Short footer logo
+├── resources/css/
+│   ├── app.css                -> App navigation and logout button styling
+│   └── guest.css              -> Guest pages, auth forms, headers, footers, layout styling
+├── resources/js/
+│   └── app.js                 -> Main Vite JS entry
+├── resources/views/
+│   ├── dashboard.blade.php    -> Dashboard page
+│   ├── welcome.blade.php      -> Welcome page
+│   ├── auth/
+│   │   ├── login.blade.php    -> Login page
+│   │   └── register.blade.php -> Register page
+│   └── components/
+│       ├── app-footer.blade.php   -> Reusable app footer
+│       ├── app-header.blade.php   -> Reusable app header
+│       ├── guest-footer.blade.php -> Reusable guest footer
+│       └── guest-header.blade.php -> Reusable guest header
+├── routes/
+│   └── web.php                -> Guest/auth route definitions
+└── vite.config.js             -> Vite and Tailwind config

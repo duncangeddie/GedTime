@@ -1,0 +1,2331 @@
+:root {
+    --AppPageBackground: #ffffff;
+
+    --AppHeaderButtonText: #ffffff;
+    --AppHeaderButtonBorder: #ffffff;
+    --AppHeaderButtonBackground: transparent;
+    --AppHeaderButtonHoverBackground: #ffffff;
+    --AppHeaderButtonHoverText: #000000;
+
+    --AppFooterButtonText: #ffffff;
+    --AppFooterButtonBorder: #ffffff;
+    --AppFooterButtonBackground: transparent;
+    --AppFooterButtonHoverBackground: #ffffff;
+    --AppFooterButtonHoverText: #000000;
+
+    --AddProjectButtonBackground: #000000;
+    --AddProjectButtonText: #ffffff;
+    --AddProjectButtonHoverBackground: #1f2937;
+
+    --AddProjectModalBackground: #ffffff;
+    --AddProjectModalBorder: #e5e7eb;
+    --AddProjectModalShadow: 0 20px 40px rgb(0 0 0 / 0.12);
+    --AddProjectModalTitle: #111827;
+    --AddProjectModalText: #6b7280;
+    --AddProjectInputBorder: #d1d5db;
+    --AddProjectInputText: #111827;
+    --AddProjectInputPlaceholder: #9ca3af;
+    --AddProjectInputFocusBorder: #111827;
+    --AddProjectLabelText: #111827;
+    --AddProjectCancelButtonBackground: #ffffff;
+    --AddProjectCancelButtonText: #111827;
+    --AddProjectCancelButtonBorder: #d1d5db;
+    --AddProjectErrorText: #dc2626;
+    --AddProjectSuccessBackground: #ecfdf5;
+    --AddProjectSuccessBorder: #a7f3d0;
+    --AddProjectSuccessText: #065f46;
+
+    --ProjectsTableBackground: #ffffff;
+    --ProjectsTableBorder: #e5e7eb;
+    --ProjectsTableHeaderBackground: #f9fafb;
+    --ProjectsTableHeaderText: #111827;
+    --ProjectsTableCellText: #374151;
+    --ProjectsTableEmptyText: #6b7280;
+    --ProjectsTableMobileLabelText: #111827;
+    --ProjectsTableMobileRowBackground: #ffffff;
+
+    --ProjectsTableActionButtonText: #111827;
+    --ProjectsTableActionButtonBorder: #d1d5db;
+    --ProjectsTableActionButtonBackground: #ffffff;
+    --ProjectsTableActionButtonHoverBackground: #111827;
+    --ProjectsTableActionButtonHoverText: #ffffff;
+
+    --ProjectsTableDeleteButtonText: #ffffff;
+    --ProjectsTableDeleteButtonBorder: #dc2626;
+    --ProjectsTableDeleteButtonBackground: #dc2626;
+    --ProjectsTableDeleteButtonHoverBackground: #b91c1c;
+    --ProjectsTableDeleteButtonHoverText: #ffffff;
+
+    --ProjectsErrorBackground: #fef2f2;
+    --ProjectsErrorBorder: #fecaca;
+    --ProjectsErrorText: #991b1b;
+
+    --EditProjectModalBackground: #ffffff;
+    --EditProjectModalBorder: #e5e7eb;
+    --EditProjectModalShadow: 0 20px 40px rgb(0 0 0 / 0.12);
+    --EditProjectModalTitle: #111827;
+    --EditProjectModalText: #6b7280;
+    --EditProjectInputBorder: #d1d5db;
+    --EditProjectInputText: #111827;
+    --EditProjectInputPlaceholder: #9ca3af;
+    --EditProjectInputFocusBorder: #111827;
+    --EditProjectLabelText: #111827;
+    --EditProjectCancelButtonBackground: #ffffff;
+    --EditProjectCancelButtonText: #111827;
+    --EditProjectCancelButtonBorder: #d1d5db;
+    --EditProjectSubmitButtonBackground: #000000;
+    --EditProjectSubmitButtonText: #ffffff;
+    --EditProjectSubmitButtonHoverBackground: #1f2937;
+    --EditProjectErrorText: #dc2626;
+
+    --DeleteProjectModalBackground: #ffffff;
+    --DeleteProjectModalBorder: #e5e7eb;
+    --DeleteProjectModalShadow: 0 20px 40px rgb(0 0 0 / 0.12);
+    --DeleteProjectModalTitle: #111827;
+    --DeleteProjectModalText: #6b7280;
+    --DeleteProjectCancelButtonBackground: #ffffff;
+    --DeleteProjectCancelButtonText: #111827;
+    --DeleteProjectCancelButtonBorder: #d1d5db;
+    --DeleteProjectSubmitButtonBackground: #dc2626;
+    --DeleteProjectSubmitButtonText: #ffffff;
+    --DeleteProjectSubmitButtonHoverBackground: #b91c1c;
+
+    --AddCategoryButtonBackground: #000000;
+    --AddCategoryButtonText: #ffffff;
+    --AddCategoryButtonHoverBackground: #1f2937;
+
+    --AddCategoryModalBackground: #ffffff;
+    --AddCategoryModalBorder: #e5e7eb;
+    --AddCategoryModalShadow: 0 20px 40px rgb(0 0 0 / 0.12);
+    --AddCategoryModalTitle: #111827;
+    --AddCategoryModalText: #6b7280;
+    --AddCategoryInputBorder: #d1d5db;
+    --AddCategoryInputText: #111827;
+    --AddCategoryInputPlaceholder: #9ca3af;
+    --AddCategoryInputFocusBorder: #111827;
+    --AddCategoryLabelText: #111827;
+    --AddCategoryCancelButtonBackground: #ffffff;
+    --AddCategoryCancelButtonText: #111827;
+    --AddCategoryCancelButtonBorder: #d1d5db;
+    --AddCategorySubmitButtonBackground: #000000;
+    --AddCategorySubmitButtonText: #ffffff;
+    --AddCategorySubmitButtonHoverBackground: #1f2937;
+    --AddCategoryErrorText: #dc2626;
+    --AddCategorySuccessBackground: #ecfdf5;
+    --AddCategorySuccessBorder: #a7f3d0;
+    --AddCategorySuccessText: #065f46;
+    --CategoriesErrorBackground: #fef2f2;
+    --CategoriesErrorBorder: #fecaca;
+    --CategoriesErrorText: #991b1b;
+
+    --CategoriesTableBackground: #ffffff;
+    --CategoriesTableBorder: #e5e7eb;
+    --CategoriesTableHeaderBackground: #f9fafb;
+    --CategoriesTableHeaderText: #111827;
+    --CategoriesTableCellText: #374151;
+    --CategoriesTableEmptyText: #6b7280;
+    --CategoriesTableMobileLabelText: #111827;
+    --CategoriesTableMobileRowBackground: #ffffff;
+    --CategoriesTableDeleteButtonText: #ffffff;
+    --CategoriesTableDeleteButtonBorder: #dc2626;
+    --CategoriesTableDeleteButtonBackground: #dc2626;
+    --CategoriesTableDeleteButtonHoverBackground: #b91c1c;
+    --CategoriesTableDeleteButtonHoverText: #ffffff;
+    --CategoriesTableStatusBadgeActiveBackground: #ecfdf5;
+    --CategoriesTableStatusBadgeActiveBorder: #a7f3d0;
+    --CategoriesTableStatusBadgeActiveText: #065f46;
+    --CategoriesTableStatusBadgeInactiveBackground: #fef2f2;
+    --CategoriesTableStatusBadgeInactiveBorder: #fecaca;
+    --CategoriesTableStatusBadgeInactiveText: #991b1b;
+
+    --AddTimesheetButtonBackground: #000000;
+    --AddTimesheetButtonText: #ffffff;
+    --AddTimesheetButtonHoverBackground: #1f2937;
+
+    --AddTimesheetModalBackground: #ffffff;
+    --AddTimesheetModalBorder: #e5e7eb;
+    --AddTimesheetModalShadow: 0 20px 40px rgb(0 0 0 / 0.12);
+    --AddTimesheetModalTitle: #111827;
+    --AddTimesheetModalText: #6b7280;
+    --AddTimesheetInputBorder: #d1d5db;
+    --AddTimesheetInputText: #111827;
+    --AddTimesheetInputPlaceholder: #9ca3af;
+    --AddTimesheetInputFocusBorder: #111827;
+    --AddTimesheetLabelText: #111827;
+    --AddTimesheetCancelButtonBackground: #ffffff;
+    --AddTimesheetCancelButtonText: #111827;
+    --AddTimesheetCancelButtonBorder: #d1d5db;
+    --AddTimesheetSubmitButtonBackground: #000000;
+    --AddTimesheetSubmitButtonText: #ffffff;
+    --AddTimesheetSubmitButtonHoverBackground: #1f2937;
+    --AddTimesheetErrorText: #dc2626;
+    --AddTimesheetSuccessBackground: #ecfdf5;
+    --AddTimesheetSuccessBorder: #a7f3d0;
+    --AddTimesheetSuccessText: #065f46;
+    --AddTimesheetHelperText: #6b7280;
+    --TimesheetErrorBackground: #fef2f2;
+    --TimesheetErrorBorder: #fecaca;
+    --TimesheetErrorText: #991b1b;
+
+    --TimesheetTableBackground: #ffffff;
+    --TimesheetTableBorder: #e5e7eb;
+    --TimesheetTableHeaderBackground: #f9fafb;
+    --TimesheetTableHeaderText: #111827;
+    --TimesheetTableCellText: #374151;
+    --TimesheetTableEmptyText: #6b7280;
+    --TimesheetTableMobileLabelText: #111827;
+    --TimesheetTableMobileRowBackground: #ffffff;
+    --TimesheetTableActionButtonText: #111827;
+    --TimesheetTableActionButtonBorder: #d1d5db;
+    --TimesheetTableActionButtonBackground: #ffffff;
+    --TimesheetTableActionButtonHoverBackground: #111827;
+    --TimesheetTableActionButtonHoverText: #ffffff;
+    --TimesheetTableDeleteButtonText: #ffffff;
+    --TimesheetTableDeleteButtonBorder: #dc2626;
+    --TimesheetTableDeleteButtonBackground: #dc2626;
+    --TimesheetTableDeleteButtonHoverBackground: #b91c1c;
+    --TimesheetTableDeleteButtonHoverText: #ffffff;
+
+    --EditTimesheetModalBackground: #ffffff;
+    --EditTimesheetModalBorder: #e5e7eb;
+    --EditTimesheetModalShadow: 0 20px 40px rgb(0 0 0 / 0.12);
+    --EditTimesheetModalTitle: #111827;
+    --EditTimesheetModalText: #6b7280;
+    --EditTimesheetInputBorder: #d1d5db;
+    --EditTimesheetInputText: #111827;
+    --EditTimesheetInputPlaceholder: #9ca3af;
+    --EditTimesheetInputFocusBorder: #111827;
+    --EditTimesheetLabelText: #111827;
+    --EditTimesheetCancelButtonBackground: #ffffff;
+    --EditTimesheetCancelButtonText: #111827;
+    --EditTimesheetCancelButtonBorder: #d1d5db;
+    --EditTimesheetSubmitButtonBackground: #000000;
+    --EditTimesheetSubmitButtonText: #ffffff;
+    --EditTimesheetSubmitButtonHoverBackground: #1f2937;
+    --EditTimesheetErrorText: #dc2626;
+
+    --DeleteTimesheetModalBackground: #ffffff;
+    --DeleteTimesheetModalBorder: #e5e7eb;
+    --DeleteTimesheetModalShadow: 0 20px 40px rgb(0 0 0 / 0.12);
+    --DeleteTimesheetModalTitle: #111827;
+    --DeleteTimesheetModalText: #6b7280;
+    --DeleteTimesheetCancelButtonBackground: #ffffff;
+    --DeleteTimesheetCancelButtonText: #111827;
+    --DeleteTimesheetCancelButtonBorder: #d1d5db;
+    --DeleteTimesheetSubmitButtonBackground: #dc2626;
+    --DeleteTimesheetSubmitButtonText: #ffffff;
+    --DeleteTimesheetSubmitButtonHoverBackground: #b91c1c;
+}
+
+/* App Header */
+
+.AppHeaderContent {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr);
+    align-items: center;
+    min-height: 5rem;
+    gap: 1rem;
+}
+
+.AppHeaderBrand {
+    display: flex;
+    align-items: center;
+    justify-self: start;
+}
+
+.AppHeaderTitleWrap {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 0;
+    justify-self: center;
+}
+
+.AppHeaderTitle {
+    margin: 0;
+    color: #ffffff;
+    font-size: 1.125rem;
+    font-weight: 700;
+    line-height: 1.2;
+    text-align: center;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.AppHeaderActions {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-self: end;
+}
+
+.AppHeaderHamburgerButton {
+    display: inline-flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 0.3rem;
+    width: 3rem;
+    height: 3rem;
+    padding: 0;
+    border: 1px solid var(--AppHeaderButtonBorder);
+    border-radius: 9999px;
+    background-color: var(--AppHeaderButtonBackground);
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+}
+
+.AppHeaderHamburgerLine {
+    display: block;
+    width: 1.25rem;
+    height: 0.125rem;
+    border-radius: 9999px;
+    background-color: var(--AppHeaderButtonText);
+    transition: all 0.2s ease-in-out;
+}
+
+.AppHeaderHamburgerButton:hover {
+    background-color: var(--AppHeaderButtonHoverBackground);
+}
+
+.AppHeaderHamburgerButton:hover .AppHeaderHamburgerLine {
+    background-color: var(--AppHeaderButtonHoverText);
+}
+
+.AppHeaderHamburgerPanel {
+    position: absolute;
+    top: calc(100% + 0.75rem);
+    right: 0;
+    width: 15rem;
+    z-index: 50;
+}
+
+.AppHeaderHamburgerMenu {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    padding: 0.75rem;
+    border: 1px solid #e5e7eb;
+    border-radius: 1rem;
+    background-color: #ffffff;
+    box-shadow: 0 20px 40px rgb(0 0 0 / 0.12);
+}
+
+.AppHeaderHamburgerLink {
+    display: inline-flex;
+    align-items: center;
+    min-height: 2.75rem;
+    padding: 0.75rem 1rem;
+    border: 1px solid #e5e7eb;
+    border-radius: 0.875rem;
+    background-color: #ffffff;
+    color: #111827;
+    font-size: 0.95rem;
+    font-weight: 600;
+    line-height: 1;
+    text-decoration: none;
+    transition: all 0.2s ease-in-out;
+}
+
+.AppHeaderHamburgerLink:hover {
+    border-color: #111827;
+    background-color: #111827;
+    color: #ffffff;
+}
+
+/* App Footer */
+
+.AppFooterContent {
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
+    align-items: center;
+    min-height: 5rem;
+    gap: 1rem;
+}
+
+.AppFooterBrand {
+    justify-self: start;
+}
+
+.AppFooterActions {
+    justify-self: center;
+}
+
+.AppFooterSpacer {
+    justify-self: end;
+}
+
+.AppFooterForm {
+    margin: 0;
+}
+
+.AppFooterButton {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 2.75rem;
+    padding: 0.75rem 1.25rem;
+    border: 1px solid var(--AppFooterButtonBorder);
+    border-radius: 9999px;
+    background-color: var(--AppFooterButtonBackground);
+    color: var(--AppFooterButtonText);
+    font-size: 0.95rem;
+    font-weight: 600;
+    line-height: 1;
+    text-decoration: none;
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+}
+
+.AppFooterButton:hover {
+    background-color: var(--AppFooterButtonHoverBackground);
+    color: var(--AppFooterButtonHoverText);
+}
+
+/* Page Layouts */
+
+.ProjectsPage,
+.CategoriesPage,
+.TimesheetPage,
+.ReportsPage,
+.SettingsPage {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    background-color: var(--AppPageBackground);
+}
+
+.ProjectsPageMain,
+.CategoriesPageMain,
+.TimesheetPageMain,
+.ReportsPageMain,
+.SettingsPageMain {
+    flex: 1;
+    background-color: var(--AppPageBackground);
+}
+
+/* Projects Page */
+
+.ProjectsPageContent {
+    width: 100%;
+    max-width: 90rem;
+    margin: 0 auto;
+    padding: 3rem 1.5rem;
+}
+
+.ProjectsPageActions {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+.ProjectsPageButton {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 3rem;
+    padding: 0.875rem 1.5rem;
+    border: 1px solid var(--AddProjectButtonBackground);
+    border-radius: 9999px;
+    background-color: var(--AddProjectButtonBackground);
+    color: var(--AddProjectButtonText);
+    font-size: 0.95rem;
+    font-weight: 600;
+    line-height: 1;
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+}
+
+.ProjectsPageButton:hover {
+    background-color: var(--AddProjectButtonHoverBackground);
+    border-color: var(--AddProjectButtonHoverBackground);
+}
+
+.ProjectsPageMessage {
+    margin-top: 1rem;
+    max-width: 32rem;
+    padding: 1rem 1.25rem;
+    border: 1px solid var(--AddProjectSuccessBorder);
+    border-radius: 1rem;
+    background-color: var(--AddProjectSuccessBackground);
+    color: var(--AddProjectSuccessText);
+    font-size: 0.95rem;
+    line-height: 1.5;
+}
+
+.ProjectsPageErrorMessage {
+    margin-top: 1rem;
+    max-width: 32rem;
+    padding: 1rem 1.25rem;
+    border: 1px solid var(--ProjectsErrorBorder);
+    border-radius: 1rem;
+    background-color: var(--ProjectsErrorBackground);
+    color: var(--ProjectsErrorText);
+    font-size: 0.95rem;
+    line-height: 1.5;
+}
+
+/* Add Project Modal */
+
+.AddProjectDialog {
+    width: 100%;
+    max-width: 32rem;
+    padding: 0;
+    border: none;
+    background: transparent;
+}
+
+.AddProjectDialog::backdrop {
+    background: rgb(0 0 0 / 0.45);
+}
+
+.AddProjectModal {
+    width: 100%;
+    padding: 2rem;
+    border: 1px solid var(--AddProjectModalBorder);
+    border-radius: 1.5rem;
+    background-color: var(--AddProjectModalBackground);
+    box-shadow: var(--AddProjectModalShadow);
+    box-sizing: border-box;
+}
+
+.AddProjectModalHeader {
+    margin-bottom: 1.5rem;
+}
+
+.AddProjectModalTitle {
+    margin: 0;
+    color: var(--AddProjectModalTitle);
+    font-size: 1.5rem;
+    font-weight: 700;
+    line-height: 1.2;
+}
+
+.AddProjectModalText {
+    margin: 0.5rem 0 0;
+    color: var(--AddProjectModalText);
+    font-size: 0.95rem;
+    line-height: 1.5;
+}
+
+.AddProjectForm {
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+}
+
+.AddProjectField {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.AddProjectLabel {
+    color: var(--AddProjectLabelText);
+    font-size: 0.95rem;
+    font-weight: 600;
+    line-height: 1.4;
+}
+
+.AddProjectInput,
+.AddProjectSelect {
+    display: block;
+    width: 100%;
+    min-height: 3.25rem;
+    padding: 0.875rem 1rem;
+    border: 1px solid var(--AddProjectInputBorder);
+    border-radius: 0.875rem;
+    background-color: #ffffff;
+    color: var(--AddProjectInputText);
+    font-size: 0.95rem;
+    line-height: 1.4;
+    outline: none;
+    box-sizing: border-box;
+}
+
+.AddProjectInput::placeholder {
+    color: var(--AddProjectInputPlaceholder);
+}
+
+.AddProjectInput:focus,
+.AddProjectSelect:focus {
+    border-color: var(--AddProjectInputFocusBorder);
+}
+
+.AddProjectError {
+    margin: 0;
+    color: var(--AddProjectErrorText);
+    font-size: 0.875rem;
+    line-height: 1.4;
+}
+
+.AddProjectModalActions {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 0.75rem;
+    margin-top: 0.5rem;
+}
+
+.AddProjectCancelButton,
+.AddProjectSubmitButton {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 3rem;
+    padding: 0.875rem 1.25rem;
+    border-radius: 9999px;
+    font-size: 0.95rem;
+    font-weight: 600;
+    line-height: 1;
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+}
+
+.AddProjectCancelButton {
+    border: 1px solid var(--AddProjectCancelButtonBorder);
+    background-color: var(--AddProjectCancelButtonBackground);
+    color: var(--AddProjectCancelButtonText);
+}
+
+.AddProjectSubmitButton {
+    border: 1px solid var(--AddProjectButtonBackground);
+    background-color: var(--AddProjectButtonBackground);
+    color: var(--AddProjectButtonText);
+}
+
+.AddProjectCancelButton:hover {
+    border-color: #9ca3af;
+}
+
+.AddProjectSubmitButton:hover {
+    background-color: var(--AddProjectButtonHoverBackground);
+    border-color: var(--AddProjectButtonHoverBackground);
+}
+
+/* Projects Table */
+
+.ProjectsTableSection {
+    margin-top: 1.5rem;
+}
+
+.ProjectsTableWrapper {
+    width: 100%;
+    overflow-x: auto;
+    border: 1px solid var(--ProjectsTableBorder);
+    border-radius: 1.5rem;
+    background-color: var(--ProjectsTableBackground);
+}
+
+.ProjectsTable {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: var(--ProjectsTableBackground);
+}
+
+.ProjectsTableHead {
+    background-color: var(--ProjectsTableHeaderBackground);
+}
+
+.ProjectsTableHeading {
+    padding: 1rem 1.25rem;
+    border-bottom: 1px solid var(--ProjectsTableBorder);
+    color: var(--ProjectsTableHeaderText);
+    font-size: 0.875rem;
+    font-weight: 700;
+    line-height: 1.4;
+    text-align: left;
+    white-space: nowrap;
+}
+
+.ProjectsTableBody .ProjectsTableRow:last-child .ProjectsTableCell {
+    border-bottom: none;
+}
+
+.ProjectsTableCell {
+    padding: 1rem 1.25rem;
+    border-bottom: 1px solid var(--ProjectsTableBorder);
+    color: var(--ProjectsTableCellText);
+    font-size: 0.95rem;
+    line-height: 1.5;
+    text-align: left;
+    vertical-align: middle;
+}
+
+.ProjectsTableEmptyCell {
+    padding: 2rem 1.25rem;
+    border-bottom: none;
+    color: var(--ProjectsTableEmptyText);
+    font-size: 0.95rem;
+    font-weight: 500;
+    line-height: 1.5;
+    text-align: center;
+}
+
+.ProjectsTableActionCell {
+    width: 1%;
+    white-space: nowrap;
+}
+
+.ProjectsTableActionButtons {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 0.75rem;
+    flex-wrap: nowrap;
+}
+
+.ProjectsTableActionButton {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 2.5rem;
+    padding: 0.75rem 1.125rem;
+    border: 1px solid var(--ProjectsTableActionButtonBorder);
+    border-radius: 9999px;
+    background-color: var(--ProjectsTableActionButtonBackground);
+    color: var(--ProjectsTableActionButtonText);
+    font-size: 0.9rem;
+    font-weight: 600;
+    line-height: 1;
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+    white-space: nowrap;
+    flex: 0 0 auto;
+}
+
+.ProjectsTableActionButton:hover {
+    background-color: var(--ProjectsTableActionButtonHoverBackground);
+    border-color: var(--ProjectsTableActionButtonHoverBackground);
+    color: var(--ProjectsTableActionButtonHoverText);
+}
+
+.ProjectsTableDeleteButton {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 2.5rem;
+    padding: 0.75rem 1.125rem;
+    border: 1px solid var(--ProjectsTableDeleteButtonBorder);
+    border-radius: 9999px;
+    background-color: var(--ProjectsTableDeleteButtonBackground);
+    color: var(--ProjectsTableDeleteButtonText);
+    font-size: 0.9rem;
+    font-weight: 600;
+    line-height: 1;
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+    white-space: nowrap;
+    flex: 0 0 auto;
+}
+
+.ProjectsTableDeleteButton:hover {
+    background-color: var(--ProjectsTableDeleteButtonHoverBackground);
+    border-color: var(--ProjectsTableDeleteButtonHoverBackground);
+    color: var(--ProjectsTableDeleteButtonHoverText);
+}
+
+/* Edit Project Modal */
+
+.EditProjectDialog {
+    width: 100%;
+    max-width: 32rem;
+    padding: 0;
+    border: none;
+    background: transparent;
+}
+
+.EditProjectDialog::backdrop {
+    background: rgb(0 0 0 / 0.45);
+}
+
+.EditProjectModal {
+    width: 100%;
+    padding: 2rem;
+    border: 1px solid var(--EditProjectModalBorder);
+    border-radius: 1.5rem;
+    background-color: var(--EditProjectModalBackground);
+    box-shadow: var(--EditProjectModalShadow);
+    box-sizing: border-box;
+}
+
+.EditProjectModalHeader {
+    margin-bottom: 1.5rem;
+}
+
+.EditProjectModalTitle {
+    margin: 0;
+    color: var(--EditProjectModalTitle);
+    font-size: 1.5rem;
+    font-weight: 700;
+    line-height: 1.2;
+}
+
+.EditProjectModalText {
+    margin: 0.5rem 0 0;
+    color: var(--EditProjectModalText);
+    font-size: 0.95rem;
+    line-height: 1.5;
+}
+
+.EditProjectForm {
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+}
+
+.EditProjectField {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.EditProjectLabel {
+    color: var(--EditProjectLabelText);
+    font-size: 0.95rem;
+    font-weight: 600;
+    line-height: 1.4;
+}
+
+.EditProjectInput,
+.EditProjectSelect {
+    display: block;
+    width: 100%;
+    min-height: 3.25rem;
+    padding: 0.875rem 1rem;
+    border: 1px solid var(--EditProjectInputBorder);
+    border-radius: 0.875rem;
+    background-color: #ffffff;
+    color: var(--EditProjectInputText);
+    font-size: 0.95rem;
+    line-height: 1.4;
+    outline: none;
+    box-sizing: border-box;
+}
+
+.EditProjectInput::placeholder {
+    color: var(--EditProjectInputPlaceholder);
+}
+
+.EditProjectInput:focus,
+.EditProjectSelect:focus {
+    border-color: var(--EditProjectInputFocusBorder);
+}
+
+.EditProjectError {
+    margin: 0;
+    color: var(--EditProjectErrorText);
+    font-size: 0.875rem;
+    line-height: 1.4;
+}
+
+.EditProjectModalActions {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 0.75rem;
+    margin-top: 0.5rem;
+}
+
+.EditProjectCancelButton,
+.EditProjectSubmitButton {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 3rem;
+    padding: 0.875rem 1.25rem;
+    border-radius: 9999px;
+    font-size: 0.95rem;
+    font-weight: 600;
+    line-height: 1;
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+}
+
+.EditProjectCancelButton {
+    border: 1px solid var(--EditProjectCancelButtonBorder);
+    background-color: var(--EditProjectCancelButtonBackground);
+    color: var(--EditProjectCancelButtonText);
+}
+
+.EditProjectSubmitButton {
+    border: 1px solid var(--EditProjectSubmitButtonBackground);
+    background-color: var(--EditProjectSubmitButtonBackground);
+    color: var(--EditProjectSubmitButtonText);
+}
+
+.EditProjectCancelButton:hover {
+    border-color: #9ca3af;
+}
+
+.EditProjectSubmitButton:hover {
+    background-color: var(--EditProjectSubmitButtonHoverBackground);
+    border-color: var(--EditProjectSubmitButtonHoverBackground);
+}
+
+/* Delete Project Modal */
+
+.DeleteProjectDialog {
+    width: 100%;
+    max-width: 32rem;
+    padding: 0;
+    border: none;
+    background: transparent;
+}
+
+.DeleteProjectDialog::backdrop {
+    background: rgb(0 0 0 / 0.45);
+}
+
+.DeleteProjectModal {
+    width: 100%;
+    padding: 2rem;
+    border: 1px solid var(--DeleteProjectModalBorder);
+    border-radius: 1.5rem;
+    background-color: var(--DeleteProjectModalBackground);
+    box-shadow: var(--DeleteProjectModalShadow);
+    box-sizing: border-box;
+}
+
+.DeleteProjectModalHeader {
+    margin-bottom: 1.5rem;
+}
+
+.DeleteProjectModalTitle {
+    margin: 0;
+    color: var(--DeleteProjectModalTitle);
+    font-size: 1.5rem;
+    font-weight: 700;
+    line-height: 1.2;
+}
+
+.DeleteProjectModalText {
+    margin: 0.5rem 0 0;
+    color: var(--DeleteProjectModalText);
+    font-size: 0.95rem;
+    line-height: 1.5;
+}
+
+.DeleteProjectModalActions {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 0.75rem;
+}
+
+.DeleteProjectCancelButton,
+.DeleteProjectSubmitButton {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 3rem;
+    padding: 0.875rem 1.25rem;
+    border-radius: 9999px;
+    font-size: 0.95rem;
+    font-weight: 600;
+    line-height: 1;
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+}
+
+.DeleteProjectCancelButton {
+    border: 1px solid var(--DeleteProjectCancelButtonBorder);
+    background-color: var(--DeleteProjectCancelButtonBackground);
+    color: var(--DeleteProjectCancelButtonText);
+}
+
+.DeleteProjectSubmitButton {
+    border: 1px solid var(--DeleteProjectSubmitButtonBackground);
+    background-color: var(--DeleteProjectSubmitButtonBackground);
+    color: var(--DeleteProjectSubmitButtonText);
+}
+
+.DeleteProjectCancelButton:hover {
+    border-color: #9ca3af;
+}
+
+.DeleteProjectSubmitButton:hover {
+    background-color: var(--DeleteProjectSubmitButtonHoverBackground);
+    border-color: var(--DeleteProjectSubmitButtonHoverBackground);
+}
+
+/* Categories Page */
+
+.CategoriesPageContent {
+    width: 100%;
+    max-width: 90rem;
+    margin: 0 auto;
+    padding: 3rem 1.5rem;
+}
+
+.CategoriesPageActions {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+.CategoriesPageButton {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 3rem;
+    padding: 0.875rem 1.5rem;
+    border: 1px solid var(--AddCategoryButtonBackground);
+    border-radius: 9999px;
+    background-color: var(--AddCategoryButtonBackground);
+    color: var(--AddCategoryButtonText);
+    font-size: 0.95rem;
+    font-weight: 600;
+    line-height: 1;
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+}
+
+.CategoriesPageButton:hover {
+    background-color: var(--AddCategoryButtonHoverBackground);
+    border-color: var(--AddCategoryButtonHoverBackground);
+}
+
+.CategoriesPageMessage {
+    margin-top: 1rem;
+    max-width: 32rem;
+    padding: 1rem 1.25rem;
+    border: 1px solid var(--AddCategorySuccessBorder);
+    border-radius: 1rem;
+    background-color: var(--AddCategorySuccessBackground);
+    color: var(--AddCategorySuccessText);
+    font-size: 0.95rem;
+    line-height: 1.5;
+}
+
+.CategoriesPageErrorMessage {
+    margin-top: 1rem;
+    max-width: 32rem;
+    padding: 1rem 1.25rem;
+    border: 1px solid var(--CategoriesErrorBorder);
+    border-radius: 1rem;
+    background-color: var(--CategoriesErrorBackground);
+    color: var(--CategoriesErrorText);
+    font-size: 0.95rem;
+    line-height: 1.5;
+}
+
+/* Add Category Modal */
+
+.AddCategoryDialog {
+    width: 100%;
+    max-width: 32rem;
+    padding: 0;
+    border: none;
+    background: transparent;
+}
+
+.AddCategoryDialog::backdrop {
+    background: rgb(0 0 0 / 0.45);
+}
+
+.AddCategoryModal {
+    width: 100%;
+    padding: 2rem;
+    border: 1px solid var(--AddCategoryModalBorder);
+    border-radius: 1.5rem;
+    background-color: var(--AddCategoryModalBackground);
+    box-shadow: var(--AddCategoryModalShadow);
+    box-sizing: border-box;
+}
+
+.AddCategoryModalHeader {
+    margin-bottom: 1.5rem;
+}
+
+.AddCategoryModalTitle {
+    margin: 0;
+    color: var(--AddCategoryModalTitle);
+    font-size: 1.5rem;
+    font-weight: 700;
+    line-height: 1.2;
+}
+
+.AddCategoryModalText {
+    margin: 0.5rem 0 0;
+    color: var(--AddCategoryModalText);
+    font-size: 0.95rem;
+    line-height: 1.5;
+}
+
+.AddCategoryForm {
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+}
+
+.AddCategoryField {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.AddCategoryLabel {
+    color: var(--AddCategoryLabelText);
+    font-size: 0.95rem;
+    font-weight: 600;
+    line-height: 1.4;
+}
+
+.AddCategoryInput {
+    display: block;
+    width: 100%;
+    min-height: 3.25rem;
+    padding: 0.875rem 1rem;
+    border: 1px solid var(--AddCategoryInputBorder);
+    border-radius: 0.875rem;
+    background-color: #ffffff;
+    color: var(--AddCategoryInputText);
+    font-size: 0.95rem;
+    line-height: 1.4;
+    outline: none;
+    box-sizing: border-box;
+}
+
+.AddCategoryInput::placeholder {
+    color: var(--AddCategoryInputPlaceholder);
+}
+
+.AddCategoryInput:focus {
+    border-color: var(--AddCategoryInputFocusBorder);
+}
+
+.AddCategoryError {
+    margin: 0;
+    color: var(--AddCategoryErrorText);
+    font-size: 0.875rem;
+    line-height: 1.4;
+}
+
+.AddCategoryModalActions {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 0.75rem;
+    margin-top: 0.5rem;
+}
+
+.AddCategoryCancelButton,
+.AddCategorySubmitButton {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 3rem;
+    padding: 0.875rem 1.25rem;
+    border-radius: 9999px;
+    font-size: 0.95rem;
+    font-weight: 600;
+    line-height: 1;
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+}
+
+.AddCategoryCancelButton {
+    border: 1px solid var(--AddCategoryCancelButtonBorder);
+    background-color: var(--AddCategoryCancelButtonBackground);
+    color: var(--AddCategoryCancelButtonText);
+}
+
+.AddCategorySubmitButton {
+    border: 1px solid var(--AddCategorySubmitButtonBackground);
+    background-color: var(--AddCategorySubmitButtonBackground);
+    color: var(--AddCategorySubmitButtonText);
+}
+
+.AddCategoryCancelButton:hover {
+    border-color: #9ca3af;
+}
+
+.AddCategorySubmitButton:hover {
+    background-color: var(--AddCategorySubmitButtonHoverBackground);
+    border-color: var(--AddCategorySubmitButtonHoverBackground);
+}
+
+/* Categories Table */
+
+.CategoriesTableSection {
+    margin-top: 1.5rem;
+}
+
+.CategoriesTableWrapper {
+    width: 100%;
+    overflow-x: auto;
+    border: 1px solid var(--CategoriesTableBorder);
+    border-radius: 1.5rem;
+    background-color: var(--CategoriesTableBackground);
+}
+
+.CategoriesTable {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: var(--CategoriesTableBackground);
+}
+
+.CategoriesTableHead {
+    background-color: var(--CategoriesTableHeaderBackground);
+}
+
+.CategoriesTableHeading {
+    padding: 1rem 1.25rem;
+    border-bottom: 1px solid var(--CategoriesTableBorder);
+    color: var(--CategoriesTableHeaderText);
+    font-size: 0.875rem;
+    font-weight: 700;
+    line-height: 1.4;
+    text-align: left;
+    white-space: nowrap;
+}
+
+.CategoriesTableBody .CategoriesTableRow:last-child .CategoriesTableCell {
+    border-bottom: none;
+}
+
+.CategoriesTableCell {
+    padding: 1rem 1.25rem;
+    border-bottom: 1px solid var(--CategoriesTableBorder);
+    color: var(--CategoriesTableCellText);
+    font-size: 0.95rem;
+    line-height: 1.5;
+    text-align: left;
+    vertical-align: middle;
+}
+
+.CategoriesTableEmptyCell {
+    padding: 2rem 1.25rem;
+    border-bottom: none;
+    color: var(--CategoriesTableEmptyText);
+    font-size: 0.95rem;
+    font-weight: 500;
+    line-height: 1.5;
+    text-align: center;
+}
+
+.CategoriesTableActionCell {
+    width: 1%;
+    white-space: nowrap;
+}
+
+.CategoriesTableActionButtons {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 0.75rem;
+    flex-wrap: nowrap;
+}
+
+.CategoriesTableDeleteButton {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 2.5rem;
+    padding: 0.75rem 1.125rem;
+    border: 1px solid var(--CategoriesTableDeleteButtonBorder);
+    border-radius: 9999px;
+    background-color: var(--CategoriesTableDeleteButtonBackground);
+    color: var(--CategoriesTableDeleteButtonText);
+    font-size: 0.9rem;
+    font-weight: 600;
+    line-height: 1;
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+    white-space: nowrap;
+    flex: 0 0 auto;
+}
+
+.CategoriesTableDeleteButton:hover {
+    background-color: var(--CategoriesTableDeleteButtonHoverBackground);
+    border-color: var(--CategoriesTableDeleteButtonHoverBackground);
+    color: var(--CategoriesTableDeleteButtonHoverText);
+}
+
+.CategoriesTableStatusBadge {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 2rem;
+    padding: 0.5rem 0.875rem;
+    border: 1px solid transparent;
+    border-radius: 9999px;
+    font-size: 0.875rem;
+    font-weight: 600;
+    line-height: 1;
+    white-space: nowrap;
+}
+
+.CategoriesTableStatusBadgeActive {
+    border-color: var(--CategoriesTableStatusBadgeActiveBorder);
+    background-color: var(--CategoriesTableStatusBadgeActiveBackground);
+    color: var(--CategoriesTableStatusBadgeActiveText);
+}
+
+.CategoriesTableStatusBadgeInactive {
+    border-color: var(--CategoriesTableStatusBadgeInactiveBorder);
+    background-color: var(--CategoriesTableStatusBadgeInactiveBackground);
+    color: var(--CategoriesTableStatusBadgeInactiveText);
+}
+
+/* Delete Category Modal */
+
+.DeleteCategoryDialog {
+    width: 100%;
+    max-width: 32rem;
+    padding: 0;
+    border: none;
+    background: transparent;
+}
+
+.DeleteCategoryDialog::backdrop {
+    background: rgb(0 0 0 / 0.45);
+}
+
+.DeleteCategoryModal {
+    width: 100%;
+    padding: 2rem;
+    border: 1px solid var(--DeleteProjectModalBorder);
+    border-radius: 1.5rem;
+    background-color: var(--DeleteProjectModalBackground);
+    box-shadow: var(--DeleteProjectModalShadow);
+    box-sizing: border-box;
+}
+
+.DeleteCategoryModalHeader {
+    margin-bottom: 1.5rem;
+}
+
+.DeleteCategoryModalTitle {
+    margin: 0;
+    color: var(--DeleteProjectModalTitle);
+    font-size: 1.5rem;
+    font-weight: 700;
+    line-height: 1.2;
+}
+
+.DeleteCategoryModalText {
+    margin: 0.5rem 0 0;
+    color: var(--DeleteProjectModalText);
+    font-size: 0.95rem;
+    line-height: 1.5;
+}
+
+.DeleteCategoryModalActions {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 0.75rem;
+}
+
+.DeleteCategoryCancelButton,
+.DeleteCategorySubmitButton {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 3rem;
+    padding: 0.875rem 1.25rem;
+    border-radius: 9999px;
+    font-size: 0.95rem;
+    font-weight: 600;
+    line-height: 1;
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+}
+
+.DeleteCategoryCancelButton {
+    border: 1px solid var(--DeleteProjectCancelButtonBorder);
+    background-color: var(--DeleteProjectCancelButtonBackground);
+    color: var(--DeleteProjectCancelButtonText);
+}
+
+.DeleteCategorySubmitButton {
+    border: 1px solid var(--DeleteProjectSubmitButtonBackground);
+    background-color: var(--DeleteProjectSubmitButtonBackground);
+    color: var(--DeleteProjectSubmitButtonText);
+}
+
+.DeleteCategoryCancelButton:hover {
+    border-color: #9ca3af;
+}
+
+.DeleteCategorySubmitButton:hover {
+    background-color: var(--DeleteProjectSubmitButtonHoverBackground);
+    border-color: var(--DeleteProjectSubmitButtonHoverBackground);
+}
+
+/* Timesheet Page */
+
+.TimesheetPageContent {
+    width: 100%;
+    max-width: 90rem;
+    margin: 0 auto;
+    padding: 3rem 1.5rem;
+}
+
+.TimesheetPageActions {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+.TimesheetPageButton {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 3rem;
+    padding: 0.875rem 1.5rem;
+    border: 1px solid var(--AddTimesheetButtonBackground);
+    border-radius: 9999px;
+    background-color: var(--AddTimesheetButtonBackground);
+    color: var(--AddTimesheetButtonText);
+    font-size: 0.95rem;
+    font-weight: 600;
+    line-height: 1;
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+}
+
+.TimesheetPageButton:hover {
+    background-color: var(--AddTimesheetButtonHoverBackground);
+    border-color: var(--AddTimesheetButtonHoverBackground);
+}
+
+.TimesheetPageButton:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
+.TimesheetPageMessage {
+    margin-top: 1rem;
+    max-width: 32rem;
+    padding: 1rem 1.25rem;
+    border: 1px solid var(--AddTimesheetSuccessBorder);
+    border-radius: 1rem;
+    background-color: var(--AddTimesheetSuccessBackground);
+    color: var(--AddTimesheetSuccessText);
+    font-size: 0.95rem;
+    line-height: 1.5;
+}
+
+.TimesheetPageErrorMessage {
+    margin-top: 1rem;
+    max-width: 32rem;
+    padding: 1rem 1.25rem;
+    border: 1px solid var(--TimesheetErrorBorder);
+    border-radius: 1rem;
+    background-color: var(--TimesheetErrorBackground);
+    color: var(--TimesheetErrorText);
+    font-size: 0.95rem;
+    line-height: 1.5;
+}
+
+/* Add Timesheet Entry Modal */
+
+.AddTimesheetEntryDialog {
+    width: 100%;
+    max-width: 32rem;
+    padding: 0;
+    border: none;
+    background: transparent;
+}
+
+.AddTimesheetEntryDialog::backdrop {
+    background: rgb(0 0 0 / 0.45);
+}
+
+.AddTimesheetEntryModal {
+    width: 100%;
+    padding: 2rem;
+    border: 1px solid var(--AddTimesheetModalBorder);
+    border-radius: 1.5rem;
+    background-color: var(--AddTimesheetModalBackground);
+    box-shadow: var(--AddTimesheetModalShadow);
+    box-sizing: border-box;
+}
+
+.AddTimesheetEntryModalHeader {
+    margin-bottom: 1.5rem;
+}
+
+.AddTimesheetEntryModalTitle {
+    margin: 0;
+    color: var(--AddTimesheetModalTitle);
+    font-size: 1.5rem;
+    font-weight: 700;
+    line-height: 1.2;
+}
+
+.AddTimesheetEntryModalText {
+    margin: 0.5rem 0 0;
+    color: var(--AddTimesheetModalText);
+    font-size: 0.95rem;
+    line-height: 1.5;
+}
+
+.AddTimesheetEntryForm {
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+}
+
+.AddTimesheetEntryField {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.AddTimesheetEntryLabel {
+    color: var(--AddTimesheetLabelText);
+    font-size: 0.95rem;
+    font-weight: 600;
+    line-height: 1.4;
+}
+
+.AddTimesheetEntryInput,
+.AddTimesheetEntrySelect {
+    display: block;
+    width: 100%;
+    min-height: 3.25rem;
+    padding: 0.875rem 1rem;
+    border: 1px solid var(--AddTimesheetInputBorder);
+    border-radius: 0.875rem;
+    background-color: #ffffff;
+    color: var(--AddTimesheetInputText);
+    font-size: 0.95rem;
+    line-height: 1.4;
+    outline: none;
+    box-sizing: border-box;
+}
+
+.AddTimesheetEntryInput::placeholder {
+    color: var(--AddTimesheetInputPlaceholder);
+}
+
+.AddTimesheetEntryInput:focus,
+.AddTimesheetEntrySelect:focus {
+    border-color: var(--AddTimesheetInputFocusBorder);
+}
+
+.AddTimesheetEntryHelperText {
+    margin: 0;
+    color: var(--AddTimesheetHelperText);
+    font-size: 0.875rem;
+    line-height: 1.4;
+}
+
+.AddTimesheetEntryError {
+    margin: 0;
+    color: var(--AddTimesheetErrorText);
+    font-size: 0.875rem;
+    line-height: 1.4;
+}
+
+.AddTimesheetEntryBreakRow {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    margin-top: 0.25rem;
+}
+
+.AddTimesheetEntryCheckboxLabel {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: var(--AddTimesheetLabelText);
+    font-size: 0.95rem;
+    font-weight: 600;
+    line-height: 1.4;
+    cursor: pointer;
+}
+
+.AddTimesheetEntryCheckbox {
+    width: 1rem;
+    height: 1rem;
+    cursor: pointer;
+}
+
+.AddTimesheetEntrySelect:disabled {
+    background-color: #f3f4f6;
+    color: #9ca3af;
+    cursor: not-allowed;
+}
+
+.AddTimesheetEntryModalActions {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 0.75rem;
+    margin-top: 0.5rem;
+}
+
+.AddTimesheetEntryCancelButton,
+.AddTimesheetEntrySubmitButton {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 3rem;
+    padding: 0.875rem 1.25rem;
+    border-radius: 9999px;
+    font-size: 0.95rem;
+    font-weight: 600;
+    line-height: 1;
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+}
+
+.AddTimesheetEntryCancelButton {
+    border: 1px solid var(--AddTimesheetCancelButtonBorder);
+    background-color: var(--AddTimesheetCancelButtonBackground);
+    color: var(--AddTimesheetCancelButtonText);
+}
+
+.AddTimesheetEntrySubmitButton {
+    border: 1px solid var(--AddTimesheetSubmitButtonBackground);
+    background-color: var(--AddTimesheetSubmitButtonBackground);
+    color: var(--AddTimesheetSubmitButtonText);
+}
+
+.AddTimesheetEntryCancelButton:hover {
+    border-color: #9ca3af;
+}
+
+.AddTimesheetEntrySubmitButton:hover {
+    background-color: var(--AddTimesheetSubmitButtonHoverBackground);
+    border-color: var(--AddTimesheetSubmitButtonHoverBackground);
+}
+
+.AddTimesheetEntrySubmitButton:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
+/* Edit Timesheet Entry Modal */
+
+.EditTimesheetEntryDialog {
+    width: 100%;
+    max-width: 32rem;
+    padding: 0;
+    border: none;
+    background: transparent;
+}
+
+.EditTimesheetEntryDialog::backdrop {
+    background: rgb(0 0 0 / 0.45);
+}
+
+.EditTimesheetEntryModal {
+    width: 100%;
+    padding: 2rem;
+    border: 1px solid var(--EditTimesheetModalBorder);
+    border-radius: 1.5rem;
+    background-color: var(--EditTimesheetModalBackground);
+    box-shadow: var(--EditTimesheetModalShadow);
+    box-sizing: border-box;
+}
+
+.EditTimesheetEntryModalHeader {
+    margin-bottom: 1.5rem;
+}
+
+.EditTimesheetEntryModalTitle {
+    margin: 0;
+    color: var(--EditTimesheetModalTitle);
+    font-size: 1.5rem;
+    font-weight: 700;
+    line-height: 1.2;
+}
+
+.EditTimesheetEntryModalText {
+    margin: 0.5rem 0 0;
+    color: var(--EditTimesheetModalText);
+    font-size: 0.95rem;
+    line-height: 1.5;
+}
+
+.EditTimesheetEntryForm {
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+}
+
+.EditTimesheetEntryField {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.EditTimesheetEntryLabel {
+    color: var(--EditTimesheetLabelText);
+    font-size: 0.95rem;
+    font-weight: 600;
+    line-height: 1.4;
+}
+
+.EditTimesheetEntryInput,
+.EditTimesheetEntrySelect {
+    display: block;
+    width: 100%;
+    min-height: 3.25rem;
+    padding: 0.875rem 1rem;
+    border: 1px solid var(--EditTimesheetInputBorder);
+    border-radius: 0.875rem;
+    background-color: #ffffff;
+    color: var(--EditTimesheetInputText);
+    font-size: 0.95rem;
+    line-height: 1.4;
+    outline: none;
+    box-sizing: border-box;
+}
+
+.EditTimesheetEntryInput::placeholder {
+    color: var(--EditTimesheetInputPlaceholder);
+}
+
+.EditTimesheetEntryInput:focus,
+.EditTimesheetEntrySelect:focus {
+    border-color: var(--EditTimesheetInputFocusBorder);
+}
+
+.EditTimesheetEntryHelperText {
+    margin: 0;
+    color: var(--AddTimesheetHelperText);
+    font-size: 0.875rem;
+    line-height: 1.4;
+}
+
+.EditTimesheetEntryError {
+    margin: 0;
+    color: var(--EditTimesheetErrorText);
+    font-size: 0.875rem;
+    line-height: 1.4;
+}
+
+.EditTimesheetEntryBreakRow {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    margin-top: 0.25rem;
+}
+
+.EditTimesheetEntryCheckboxLabel {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: var(--EditTimesheetLabelText);
+    font-size: 0.95rem;
+    font-weight: 600;
+    line-height: 1.4;
+    cursor: pointer;
+}
+
+.EditTimesheetEntryCheckbox {
+    width: 1rem;
+    height: 1rem;
+    cursor: pointer;
+}
+
+.EditTimesheetEntrySelect:disabled {
+    background-color: #f3f4f6;
+    color: #9ca3af;
+    cursor: not-allowed;
+}
+
+.EditTimesheetEntryModalActions {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 0.75rem;
+    margin-top: 0.5rem;
+}
+
+.EditTimesheetEntryCancelButton,
+.EditTimesheetEntrySubmitButton {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 3rem;
+    padding: 0.875rem 1.25rem;
+    border-radius: 9999px;
+    font-size: 0.95rem;
+    font-weight: 600;
+    line-height: 1;
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+}
+
+.EditTimesheetEntryCancelButton {
+    border: 1px solid var(--EditTimesheetCancelButtonBorder);
+    background-color: var(--EditTimesheetCancelButtonBackground);
+    color: var(--EditTimesheetCancelButtonText);
+}
+
+.EditTimesheetEntrySubmitButton {
+    border: 1px solid var(--EditTimesheetSubmitButtonBackground);
+    background-color: var(--EditTimesheetSubmitButtonBackground);
+    color: var(--EditTimesheetSubmitButtonText);
+}
+
+.EditTimesheetEntryCancelButton:hover {
+    border-color: #9ca3af;
+}
+
+.EditTimesheetEntrySubmitButton:hover {
+    background-color: var(--EditTimesheetSubmitButtonHoverBackground);
+    border-color: var(--EditTimesheetSubmitButtonHoverBackground);
+}
+
+/* Delete Timesheet Entry Modal */
+
+.DeleteTimesheetEntryDialog {
+    width: 100%;
+    max-width: 32rem;
+    padding: 0;
+    border: none;
+    background: transparent;
+}
+
+.DeleteTimesheetEntryDialog::backdrop {
+    background: rgb(0 0 0 / 0.45);
+}
+
+.DeleteTimesheetEntryModal {
+    width: 100%;
+    padding: 2rem;
+    border: 1px solid var(--DeleteTimesheetModalBorder);
+    border-radius: 1.5rem;
+    background-color: var(--DeleteTimesheetModalBackground);
+    box-shadow: var(--DeleteTimesheetModalShadow);
+    box-sizing: border-box;
+}
+
+.DeleteTimesheetEntryModalHeader {
+    margin-bottom: 1.5rem;
+}
+
+.DeleteTimesheetEntryModalTitle {
+    margin: 0;
+    color: var(--DeleteTimesheetModalTitle);
+    font-size: 1.5rem;
+    font-weight: 700;
+    line-height: 1.2;
+}
+
+.DeleteTimesheetEntryModalText {
+    margin: 0.5rem 0 0;
+    color: var(--DeleteTimesheetModalText);
+    font-size: 0.95rem;
+    line-height: 1.5;
+}
+
+.DeleteTimesheetEntryModalActions {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 0.75rem;
+}
+
+.DeleteTimesheetEntryCancelButton,
+.DeleteTimesheetEntrySubmitButton {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 3rem;
+    padding: 0.875rem 1.25rem;
+    border-radius: 9999px;
+    font-size: 0.95rem;
+    font-weight: 600;
+    line-height: 1;
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+}
+
+.DeleteTimesheetEntryCancelButton {
+    border: 1px solid var(--DeleteTimesheetCancelButtonBorder);
+    background-color: var(--DeleteTimesheetCancelButtonBackground);
+    color: var(--DeleteTimesheetCancelButtonText);
+}
+
+.DeleteTimesheetEntrySubmitButton {
+    border: 1px solid var(--DeleteTimesheetSubmitButtonBackground);
+    background-color: var(--DeleteTimesheetSubmitButtonBackground);
+    color: var(--DeleteTimesheetSubmitButtonText);
+}
+
+.DeleteTimesheetEntryCancelButton:hover {
+    border-color: #9ca3af;
+}
+
+.DeleteTimesheetEntrySubmitButton:hover {
+    background-color: var(--DeleteTimesheetSubmitButtonHoverBackground);
+    border-color: var(--DeleteTimesheetSubmitButtonHoverBackground);
+}
+
+/* Timesheet Table */
+
+.TimesheetTableSection {
+    margin-top: 1.5rem;
+}
+
+.TimesheetTableWrapper {
+    width: 100%;
+    overflow-x: auto;
+    border: 1px solid var(--TimesheetTableBorder);
+    border-radius: 1.5rem;
+    background-color: var(--TimesheetTableBackground);
+}
+
+.TimesheetTable {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: var(--TimesheetTableBackground);
+}
+
+.TimesheetTableHead {
+    background-color: var(--TimesheetTableHeaderBackground);
+}
+
+.TimesheetTableHeading {
+    padding: 1rem 1.25rem;
+    border-bottom: 1px solid var(--TimesheetTableBorder);
+    color: var(--TimesheetTableHeaderText);
+    font-size: 0.875rem;
+    font-weight: 700;
+    line-height: 1.4;
+    text-align: left;
+    white-space: nowrap;
+}
+
+.TimesheetTableBody .TimesheetTableRow:last-child .TimesheetTableCell {
+    border-bottom: none;
+}
+
+.TimesheetTableCell {
+    padding: 1rem 1.25rem;
+    border-bottom: 1px solid var(--TimesheetTableBorder);
+    color: var(--TimesheetTableCellText);
+    font-size: 0.95rem;
+    line-height: 1.5;
+    text-align: left;
+    vertical-align: middle;
+}
+
+.TimesheetTableEmptyCell {
+    padding: 2rem 1.25rem;
+    border-bottom: none;
+    color: var(--TimesheetTableEmptyText);
+    font-size: 0.95rem;
+    font-weight: 500;
+    line-height: 1.5;
+    text-align: center;
+}
+
+.TimesheetTableActionCell {
+    width: 1%;
+    white-space: nowrap;
+}
+
+.TimesheetTableActionButtons {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 0.75rem;
+    flex-wrap: nowrap;
+}
+
+.TimesheetTableActionButton {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 2.5rem;
+    padding: 0.75rem 1.125rem;
+    border: 1px solid var(--TimesheetTableActionButtonBorder);
+    border-radius: 9999px;
+    background-color: var(--TimesheetTableActionButtonBackground);
+    color: var(--TimesheetTableActionButtonText);
+    font-size: 0.9rem;
+    font-weight: 600;
+    line-height: 1;
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+    white-space: nowrap;
+    flex: 0 0 auto;
+}
+
+.TimesheetTableActionButton:hover {
+    background-color: var(--TimesheetTableActionButtonHoverBackground);
+    border-color: var(--TimesheetTableActionButtonHoverBackground);
+    color: var(--TimesheetTableActionButtonHoverText);
+}
+
+.TimesheetTableDeleteButton {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 2.5rem;
+    padding: 0.75rem 1.125rem;
+    border: 1px solid var(--TimesheetTableDeleteButtonBorder);
+    border-radius: 9999px;
+    background-color: var(--TimesheetTableDeleteButtonBackground);
+    color: var(--TimesheetTableDeleteButtonText);
+    font-size: 0.9rem;
+    font-weight: 600;
+    line-height: 1;
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+    white-space: nowrap;
+    flex: 0 0 auto;
+}
+
+.TimesheetTableDeleteButton:hover {
+    background-color: var(--TimesheetTableDeleteButtonHoverBackground);
+    border-color: var(--TimesheetTableDeleteButtonHoverBackground);
+    color: var(--TimesheetTableDeleteButtonHoverText);
+}
+
+/* Settings Page */
+
+.SettingsPageMain {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--AppPageBackground);
+}
+
+.SettingsPageContent {
+    width: 100%;
+    max-width: 32rem;
+    padding: 2rem 1.5rem;
+}
+
+.SettingsPageMessage {
+    margin-bottom: 1rem;
+    padding: 1rem 1.25rem;
+    border: 1px solid var(--AddTimesheetSuccessBorder);
+    border-radius: 1rem;
+    background-color: var(--AddTimesheetSuccessBackground);
+    color: var(--AddTimesheetSuccessText);
+    font-size: 0.95rem;
+    line-height: 1.5;
+}
+
+.SettingsPageErrorMessage {
+    margin-bottom: 1rem;
+    padding: 1rem 1.25rem;
+    border: 1px solid var(--TimesheetErrorBorder);
+    border-radius: 1rem;
+    background-color: var(--TimesheetErrorBackground);
+    color: var(--TimesheetErrorText);
+    font-size: 0.95rem;
+    line-height: 1.5;
+}
+
+.SettingsCard {
+    width: 100%;
+    padding: 2rem;
+    border: 1px solid var(--AddTimesheetModalBorder);
+    border-radius: 1.5rem;
+    background-color: var(--AddTimesheetModalBackground);
+    box-shadow: var(--AddTimesheetModalShadow);
+    box-sizing: border-box;
+}
+
+.SettingsCardHeader {
+    margin-bottom: 1.5rem;
+}
+
+.SettingsCardTitle {
+    margin: 0;
+    color: var(--AddTimesheetModalTitle);
+    font-size: 1.5rem;
+    font-weight: 700;
+    line-height: 1.2;
+}
+
+.SettingsCardText {
+    margin: 0.5rem 0 0;
+    color: var(--AddTimesheetModalText);
+    font-size: 0.95rem;
+    line-height: 1.5;
+}
+
+.SettingsForm {
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+}
+
+.SettingsField {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.SettingsLabel {
+    color: var(--AddTimesheetLabelText);
+    font-size: 0.95rem;
+    font-weight: 600;
+    line-height: 1.4;
+}
+
+.SettingsInput {
+    display: block;
+    width: 100%;
+    min-height: 3.25rem;
+    padding: 0.875rem 1rem;
+    border: 1px solid var(--AddTimesheetInputBorder);
+    border-radius: 0.875rem;
+    background-color: #ffffff;
+    color: var(--AddTimesheetInputText);
+    font-size: 0.95rem;
+    line-height: 1.4;
+    outline: none;
+    box-sizing: border-box;
+}
+
+.SettingsInput:focus {
+    border-color: var(--AddTimesheetInputFocusBorder);
+}
+
+.SettingsError {
+    margin: 0;
+    color: var(--AddTimesheetErrorText);
+    font-size: 0.875rem;
+    line-height: 1.4;
+}
+
+.SettingsActions {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+}
+
+.SettingsSubmitButton {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 3rem;
+    padding: 0.875rem 1.25rem;
+    border: 1px solid var(--AddTimesheetSubmitButtonBackground);
+    border-radius: 9999px;
+    background-color: var(--AddTimesheetSubmitButtonBackground);
+    color: var(--AddTimesheetSubmitButtonText);
+    font-size: 0.95rem;
+    font-weight: 600;
+    line-height: 1;
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+}
+
+.SettingsSubmitButton:hover {
+    background-color: var(--AddTimesheetSubmitButtonHoverBackground);
+    border-color: var(--AddTimesheetSubmitButtonHoverBackground);
+}
+
+/* Responsive */
+
+@media (max-width: 768px) {
+    .AppHeaderHamburgerPanel {
+        width: min(15rem, calc(100vw - 2rem));
+    }
+
+    .AppHeaderTitle {
+        font-size: 1rem;
+    }
+
+    .ProjectsPageContent,
+    .CategoriesPageContent,
+    .TimesheetPageContent,
+    .SettingsPageContent {
+        padding: 2rem 1rem;
+    }
+
+    .SettingsCard {
+        padding: 1.5rem;
+    }
+
+    .ProjectsTableWrapper,
+    .CategoriesTableWrapper,
+    .TimesheetTableWrapper {
+        overflow-x: visible;
+        border: none;
+        background-color: transparent;
+    }
+
+    .ProjectsTable,
+    .CategoriesTable,
+    .TimesheetTable {
+        min-width: 0;
+    }
+
+    .ProjectsTableHead,
+    .CategoriesTableHead,
+    .TimesheetTableHead {
+        display: none;
+    }
+
+    .ProjectsTable,
+    .ProjectsTableBody,
+    .ProjectsTableRow,
+    .ProjectsTableCell,
+    .CategoriesTable,
+    .CategoriesTableBody,
+    .CategoriesTableRow,
+    .CategoriesTableCell,
+    .TimesheetTable,
+    .TimesheetTableBody,
+    .TimesheetTableRow,
+    .TimesheetTableCell {
+        display: block;
+        width: 100%;
+    }
+
+    .ProjectsTableRow {
+        margin-bottom: 1rem;
+        border: 1px solid var(--ProjectsTableBorder);
+        border-radius: 1rem;
+        background-color: var(--ProjectsTableMobileRowBackground);
+        overflow: hidden;
+    }
+
+    .CategoriesTableRow {
+        margin-bottom: 1rem;
+        border: 1px solid var(--CategoriesTableBorder);
+        border-radius: 1rem;
+        background-color: var(--CategoriesTableMobileRowBackground);
+        overflow: hidden;
+    }
+
+    .TimesheetTableRow {
+        margin-bottom: 1rem;
+        border: 1px solid var(--TimesheetTableBorder);
+        border-radius: 1rem;
+        background-color: var(--TimesheetTableMobileRowBackground);
+        overflow: hidden;
+    }
+
+    .ProjectsTableCell {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 1rem;
+        padding: 0.875rem 1rem;
+        text-align: right;
+        border-bottom: 1px solid var(--ProjectsTableBorder);
+    }
+
+    .CategoriesTableCell {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 1rem;
+        padding: 0.875rem 1rem;
+        text-align: right;
+        border-bottom: 1px solid var(--CategoriesTableBorder);
+    }
+
+    .TimesheetTableCell {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 1rem;
+        padding: 0.875rem 1rem;
+        text-align: right;
+        border-bottom: 1px solid var(--TimesheetTableBorder);
+    }
+
+    .ProjectsTableCell::before {
+        content: attr(data-label);
+        color: var(--ProjectsTableMobileLabelText);
+        font-size: 0.875rem;
+        font-weight: 700;
+        line-height: 1.4;
+        text-align: left;
+    }
+
+    .CategoriesTableCell::before {
+        content: attr(data-label);
+        color: var(--CategoriesTableMobileLabelText);
+        font-size: 0.875rem;
+        font-weight: 700;
+        line-height: 1.4;
+        text-align: left;
+    }
+
+    .TimesheetTableCell::before {
+        content: attr(data-label);
+        color: var(--TimesheetTableMobileLabelText);
+        font-size: 0.875rem;
+        font-weight: 700;
+        line-height: 1.4;
+        text-align: left;
+    }
+
+    .ProjectsTableRow .ProjectsTableCell:last-child,
+    .CategoriesTableRow .CategoriesTableCell:last-child,
+    .TimesheetTableRow .TimesheetTableCell:last-child {
+        border-bottom: none;
+    }
+
+    .ProjectsTableEmptyCell {
+        display: block;
+        padding: 1.25rem 1rem;
+        text-align: center;
+        border: 1px solid var(--ProjectsTableBorder);
+        border-radius: 1rem;
+        background-color: var(--ProjectsTableBackground);
+    }
+
+    .CategoriesTableEmptyCell {
+        display: block;
+        padding: 1.25rem 1rem;
+        text-align: center;
+        border: 1px solid var(--CategoriesTableBorder);
+        border-radius: 1rem;
+        background-color: var(--CategoriesTableBackground);
+    }
+
+    .TimesheetTableEmptyCell {
+        display: block;
+        padding: 1.25rem 1rem;
+        text-align: center;
+        border: 1px solid var(--TimesheetTableBorder);
+        border-radius: 1rem;
+        background-color: var(--TimesheetTableBackground);
+    }
+
+    .ProjectsTableEmptyCell::before,
+    .CategoriesTableEmptyCell::before,
+    .TimesheetTableEmptyCell::before {
+        content: none;
+    }
+
+    .ProjectsTableActionCell,
+    .CategoriesTableActionCell,
+    .TimesheetTableActionCell {
+        width: 100%;
+        white-space: normal;
+    }
+
+    .ProjectsTableActionButtons,
+    .CategoriesTableActionButtons,
+    .TimesheetTableActionButtons {
+        width: auto;
+        flex-direction: row;
+        align-items: center;
+        justify-content: flex-start;
+        flex-wrap: nowrap;
+    }
+
+    .ProjectsTableActionButton,
+    .ProjectsTableDeleteButton,
+    .CategoriesTableDeleteButton,
+    .TimesheetTableActionButton,
+    .TimesheetTableDeleteButton {
+        width: auto;
+        flex: 0 0 auto;
+    }
+}
