@@ -30,6 +30,9 @@ class TimesheetController extends Controller
         // Delete Timesheet Button Variables
         $DeleteTimesheetButton = $this->DeleteTimesheetButton();
 
+        // Digital Clock Variables
+        $TimesheetDigitalClock = $this->TimesheetDigitalClock();
+
         // Page Variables
         $PageTitle = 'Timesheet';
         $TimesheetPageClass = 'TimesheetPage';
@@ -251,6 +254,7 @@ class TimesheetController extends Controller
             'AddTimesheetButton' => $AddTimesheetButton,
             'EditTimesheetButton' => $EditTimesheetButton,
             'DeleteTimesheetButton' => $DeleteTimesheetButton,
+            'TimesheetDigitalClock' => $TimesheetDigitalClock,
             'TimesheetPageClass' => $TimesheetPageClass,
             'TimesheetPageMainClass' => $TimesheetPageMainClass,
             'TimesheetPageContentClass' => $TimesheetPageContentClass,
@@ -681,6 +685,28 @@ class TimesheetController extends Controller
             'ButtonIconAlt' => $ButtonIconAlt,
             'ButtonIconSizeClass' => $ButtonIconSizeClass,
             'ButtonIconClass' => $ButtonIconClass,
+        ];
+    }
+
+    protected function TimesheetDigitalClock(): array
+    {
+        // Clock Text Variables
+        $ClockLabel = 'Current Date And Time';
+
+        // Clock Element Variables
+        $ClockWrapperClass = 'inline-flex min-w-[170px] flex-col items-center justify-center rounded-lg border border-slate-300 bg-white px-4 py-2 text-sm font-semibold text-slate-800 shadow-sm';
+        $ClockTimeId = 'TimesheetDigitalClockTime';
+        $ClockDateId = 'TimesheetDigitalClockDate';
+        $ClockTimeClass = 'text-base font-semibold tabular-nums tracking-wider';
+        $ClockDateClass = 'text-xs font-medium text-slate-600 tabular-nums';
+
+        return [
+            'ClockLabel' => $ClockLabel,
+            'ClockWrapperClass' => $ClockWrapperClass,
+            'ClockTimeId' => $ClockTimeId,
+            'ClockDateId' => $ClockDateId,
+            'ClockTimeClass' => $ClockTimeClass,
+            'ClockDateClass' => $ClockDateClass,
         ];
     }
 

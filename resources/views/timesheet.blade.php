@@ -36,6 +36,26 @@
                                 <span class="sr-only">{{ $AddTimesheetButton['ButtonLabel'] }}</span>
                             </button>
 
+                            <div
+                                class="{{ $TimesheetDigitalClock['ClockWrapperClass'] }}"
+                                aria-label="{{ $TimesheetDigitalClock['ClockLabel'] }}"
+                                title="{{ $TimesheetDigitalClock['ClockLabel'] }}"
+                            >
+                                <span
+                                    id="{{ $TimesheetDigitalClock['ClockTimeId'] }}"
+                                    class="{{ $TimesheetDigitalClock['ClockTimeClass'] }}"
+                                >
+                                    00:00:00
+                                </span>
+
+                                <span
+                                    id="{{ $TimesheetDigitalClock['ClockDateId'] }}"
+                                    class="{{ $TimesheetDigitalClock['ClockDateClass'] }}"
+                                >
+                                    00/00/0000
+                                </span>
+                            </div>
+
                             <form
                                 method="GET"
                                 action="{{ $TimesheetPageFiltersFormAction }}"
@@ -233,8 +253,37 @@
                 const ViewMoreButton = document.getElementById('{{ $TimesheetViewMoreButtonId }}');
                 const TimesheetRows = Array.from(document.querySelectorAll('[data-timesheet-entry-row]'));
                 const HiddenRowClass = @json($TimesheetTableHiddenRowClass);
+                const DigitalClockTime = document.getElementById('{{ $TimesheetDigitalClock['ClockTimeId'] }}');
+                const DigitalClockDate = document.getElementById('{{ $TimesheetDigitalClock['ClockDateId'] }}');
                 let VisibleEntriesCount = {{ $TimesheetInitialVisibleEntries }};
                 const ViewMoreIncrement = {{ $TimesheetViewMoreIncrement }};
+
+                function UpdateDigitalClock() {
+                    const CurrentDateTime = new Date();
+
+                    if (DigitalClockTime) {
+                        const TimeDisplay = CurrentDateTime.toLocaleTimeString('en-GB', {
+                            hour: '2-digit',
+                            minute: '2-digit',
+                            second: '2-digit',
+                        });
+
+                        DigitalClockTime.textContent = TimeDisplay;
+                    }
+
+                    if (DigitalClockDate) {
+                        const DateDisplay = CurrentDateTime.toLocaleDateString('en-GB', {
+                            day: '2-digit',
+                            month: '2-digit',
+                            year: 'numeric',
+                        });
+
+                        DigitalClockDate.textContent = DateDisplay;
+                    }
+                }
+
+                UpdateDigitalClock();
+                window.setInterval(UpdateDigitalClock, 1000);
 
                 if (SuccessMessage) {
                     window.setTimeout(function () {
