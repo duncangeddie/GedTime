@@ -5,6 +5,11 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
         <title>{{ $PageTitle }}</title>
+        <link
+            rel="{{ $ViewFavicon['FaviconRel'] }}"
+            type="{{ $ViewFavicon['FaviconType'] }}"
+            href="{{ $ViewFavicon['FaviconHref'] }}"
+        >
 
         @vite(['resources/css/guest.css', 'resources/css/app.css', 'resources/js/app.js'])
     </head>
@@ -15,23 +20,91 @@
             <main class="{{ $TimesheetPageMainClass }}">
                 <div class="{{ $TimesheetPageContentClass }}">
                     <div class="{{ $TimesheetPageActionsClass }}">
-                        <button
-                            type="button"
-                            class="{{ $TimesheetPageButtonClass }}"
-                            onclick="document.getElementById('{{ $AddTimesheetEntryDialogId }}').showModal()"
-                        >
-                            {{ $AddTimesheetEntryButtonLabel }}
-                        </button>
+                        <div class="{{ $TimesheetPageActionsGroupClass }}">
+                            <button
+                                type="button"
+                                class="{{ $AddTimesheetButton['ButtonClass'] }}"
+                                onclick="document.getElementById('{{ $AddTimesheetButton['DialogId'] }}').showModal()"
+                                aria-label="{{ $AddTimesheetButton['ButtonAriaLabel'] }}"
+                                title="{{ $AddTimesheetButton['ButtonTitle'] }}"
+                            >
+                                <img
+                                    src="{{ $AddTimesheetButton['ButtonIconPath'] }}"
+                                    alt="{{ $AddTimesheetButton['ButtonIconAlt'] }}"
+                                    class="{{ $AddTimesheetButton['ButtonIconClass'] }}"
+                                >
+                                <span class="sr-only">{{ $AddTimesheetButton['ButtonLabel'] }}</span>
+                            </button>
+
+                            <form
+                                method="GET"
+                                action="{{ $TimesheetPageFiltersFormAction }}"
+                                class="{{ $TimesheetPageFiltersFormClass }}"
+                            >
+                                <label for="{{ $ProjectFilterName }}" class="{{ $TimesheetPageFiltersLabelClass }}">
+                                    {{ $ProjectFilterLabel }}
+                                </label>
+
+                                <select
+                                    id="{{ $ProjectFilterName }}"
+                                    name="{{ $ProjectFilterName }}"
+                                    class="{{ $TimesheetPageFiltersSelectClass }}"
+                                >
+                                    <option value="{{ $ProjectFilterAllValue }}" @selected($SelectedProjectFilter === $ProjectFilterAllValue)>
+                                        {{ $ProjectFilterAllLabel }}
+                                    </option>
+
+                                    @foreach ($Projects as $Project)
+                                        <option value="{{ $Project->id }}" @selected((string) $Project->id === $SelectedProjectFilter)>
+                                            {{ $Project->project_name }}
+                                        </option>
+                                    @endforeach
+                                </select>
+
+                                <label for="{{ $DateRangeFilterName }}" class="{{ $TimesheetPageFiltersLabelClass }}">
+                                    {{ $DateRangeFilterLabel }}
+                                </label>
+
+                                <select
+                                    id="{{ $DateRangeFilterName }}"
+                                    name="{{ $DateRangeFilterName }}"
+                                    class="{{ $TimesheetPageFiltersSelectClass }}"
+                                >
+                                    @foreach ($DateRangeFilterOptions as $DateRangeFilterOption)
+                                        <option
+                                            value="{{ $DateRangeFilterOption['Value'] }}"
+                                            @selected($DateRangeFilterOption['Value'] === $SelectedDateRangeFilter)
+                                        >
+                                            {{ $DateRangeFilterOption['Label'] }}
+                                        </option>
+                                    @endforeach
+                                </select>
+
+                                <button
+                                    type="submit"
+                                    class="{{ $TimesheetPageFiltersApplyButtonClass }}"
+                                >
+                                    {{ $TimesheetPageFiltersApplyButtonLabel }}
+                                </button>
+
+                                <a
+                                    href="{{ $TimesheetPageFiltersResetUrl }}"
+                                    class="{{ $TimesheetPageFiltersResetButtonClass }}"
+                                >
+                                    {{ $TimesheetPageFiltersResetButtonLabel }}
+                                </a>
+                            </form>
+                        </div>
                     </div>
 
                     @if (session('SuccessMessage'))
-                        <div class="{{ $TimesheetPageMessageClass }}">
+                        <div id="TimesheetSuccessMessage" class="{{ $TimesheetPageMessageClass }}">
                             {{ session('SuccessMessage') }}
                         </div>
                     @endif
 
                     @if (session('ErrorMessage'))
-                        <div class="{{ $TimesheetPageErrorMessageClass }}">
+                        <div id="TimesheetErrorMessage" class="{{ $TimesheetPageErrorMessageClass }}">
                             {{ session('ErrorMessage') }}
                         </div>
                     @endif
@@ -51,7 +124,10 @@
 
                                 <tbody class="{{ $TimesheetTableBodyClass }}">
                                     @forelse ($TimesheetEntries as $TimesheetEntry)
-                                        <tr class="{{ $TimesheetTableRowClass }}">
+                                        <tr
+                                            class="{{ $TimesheetTableRowClass }} {{ $loop->index >= $TimesheetInitialVisibleEntries ? $TimesheetTableHiddenRowClass : '' }}"
+                                            data-timesheet-entry-row
+                                        >
                                             <td class="{{ $TimesheetTableCellClass }}" data-label="Date">
                                                 {{ $TimesheetEntry->date }}
                                             </td>
@@ -84,18 +160,32 @@
                                                 <div class="{{ $TimesheetTableActionButtonsClass }}">
                                                     <button
                                                         type="button"
-                                                        class="{{ $TimesheetTableActionButtonClass }}"
+                                                        class="{{ $EditTimesheetButton['ButtonClass'] }}"
                                                         onclick="document.getElementById('EditTimesheetEntryDialog_{{ $TimesheetEntry->id }}').showModal()"
+                                                        aria-label="{{ $EditTimesheetButton['ButtonAriaLabel'] }}"
+                                                        title="{{ $EditTimesheetButton['ButtonTitle'] }}"
                                                     >
-                                                        {{ $EditTimesheetButtonLabel }}
+                                                        <img
+                                                            src="{{ $EditTimesheetButton['ButtonIconPath'] }}"
+                                                            alt="{{ $EditTimesheetButton['ButtonIconAlt'] }}"
+                                                            class="{{ $EditTimesheetButton['ButtonIconClass'] }}"
+                                                        >
+                                                        <span class="sr-only">{{ $EditTimesheetButton['ButtonLabel'] }}</span>
                                                     </button>
 
                                                     <button
                                                         type="button"
-                                                        class="{{ $TimesheetTableDeleteButtonClass }}"
+                                                        class="{{ $DeleteTimesheetButton['ButtonClass'] }}"
                                                         onclick="document.getElementById('DeleteTimesheetEntryDialog_{{ $TimesheetEntry->id }}').showModal()"
+                                                        aria-label="{{ $DeleteTimesheetButton['ButtonAriaLabel'] }}"
+                                                        title="{{ $DeleteTimesheetButton['ButtonTitle'] }}"
                                                     >
-                                                        {{ $DeleteTimesheetButtonLabel }}
+                                                        <img
+                                                            src="{{ $DeleteTimesheetButton['ButtonIconPath'] }}"
+                                                            alt="{{ $DeleteTimesheetButton['ButtonIconAlt'] }}"
+                                                            class="{{ $DeleteTimesheetButton['ButtonIconClass'] }}"
+                                                        >
+                                                        <span class="sr-only">{{ $DeleteTimesheetButton['ButtonLabel'] }}</span>
                                                     </button>
                                                 </div>
                                             </td>
@@ -110,6 +200,18 @@
                                 </tbody>
                             </table>
                         </div>
+
+                        @if ($TimesheetEntries->count() > $TimesheetInitialVisibleEntries)
+                            <div class="{{ $TimesheetViewMoreWrapperClass }}">
+                                <button
+                                    type="button"
+                                    id="{{ $TimesheetViewMoreButtonId }}"
+                                    class="{{ $TimesheetViewMoreButtonClass }}"
+                                >
+                                    {{ $TimesheetViewMoreButtonLabel }}
+                                </button>
+                            </div>
+                        @endif
                     </div>
                 </div>
 
@@ -123,6 +225,46 @@
 
             @include('components.app-footer', ['LogoPath' => $AppFooterLogo])
         </div>
+
+        <script>
+            document.addEventListener('DOMContentLoaded', function () {
+                const SuccessMessage = document.getElementById('TimesheetSuccessMessage');
+                const ErrorMessage = document.getElementById('TimesheetErrorMessage');
+                const ViewMoreButton = document.getElementById('{{ $TimesheetViewMoreButtonId }}');
+                const TimesheetRows = Array.from(document.querySelectorAll('[data-timesheet-entry-row]'));
+                const HiddenRowClass = @json($TimesheetTableHiddenRowClass);
+                let VisibleEntriesCount = {{ $TimesheetInitialVisibleEntries }};
+                const ViewMoreIncrement = {{ $TimesheetViewMoreIncrement }};
+
+                if (SuccessMessage) {
+                    window.setTimeout(function () {
+                        SuccessMessage.remove();
+                    }, 5000);
+                }
+
+                if (ErrorMessage) {
+                    window.setTimeout(function () {
+                        ErrorMessage.remove();
+                    }, 5000);
+                }
+
+                if (ViewMoreButton) {
+                    ViewMoreButton.addEventListener('click', function () {
+                        VisibleEntriesCount += ViewMoreIncrement;
+
+                        TimesheetRows.forEach(function (TimesheetRow, Index) {
+                            if (Index < VisibleEntriesCount) {
+                                TimesheetRow.classList.remove(HiddenRowClass);
+                            }
+                        });
+
+                        if (VisibleEntriesCount >= TimesheetRows.length) {
+                            ViewMoreButton.remove();
+                        }
+                    });
+                }
+            });
+        </script>
 
         @if (
             $errors->has($ProjectFieldName) ||
