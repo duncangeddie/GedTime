@@ -56,6 +56,20 @@
                                 </span>
                             </div>
 
+                            <div
+                                class="{{ $TimesheetTodayWorked['TodayWorkedWrapperClass'] }}"
+                                aria-label="{{ $TimesheetTodayWorked['TodayWorkedLabel'] }}"
+                                title="{{ $TimesheetTodayWorked['TodayWorkedLabel'] }}"
+                            >
+                                <span class="{{ $TimesheetTodayWorked['TodayWorkedValueClass'] }}">
+                                    {{ $TodayWorkedDisplay }}
+                                </span>
+
+                                <span class="{{ $TimesheetTodayWorked['TodayWorkedLabelClass'] }}">
+                                    {{ $TimesheetTodayWorked['TodayWorkedLabel'] }}
+                                </span>
+                            </div>
+
                             <form
                                 method="GET"
                                 action="{{ $TimesheetPageFiltersFormAction }}"

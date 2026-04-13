@@ -5,8 +5,10 @@ namespace App\Http\Controllers;
 use Illuminate\Contracts\View\View;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
+use Illuminate\Support\Carbon;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Validation\Rule;
+use Throwable;
 
 class TimesheetController extends Controller
 {
@@ -32,6 +34,9 @@ class TimesheetController extends Controller
 
         // Digital Clock Variables
         $TimesheetDigitalClock = $this->TimesheetDigitalClock();
+
+        // Today Worked Variables
+        $TimesheetTodayWorked = $this->TimesheetTodayWorked();
 
         // Page Variables
         $PageTitle = 'Timesheet';
@@ -236,15 +241,29 @@ class TimesheetController extends Controller
             ])
             ->map(function ($TimesheetEntry) {
                 // Duration Variables
-                $DurationMinutes = (int) ($TimesheetEntry->duration ?? 0);
-                $Hours = intdiv($DurationMinutes, 60);
-                $Minutes = $DurationMinutes % 60;
-                $DurationDisplay = $Hours . ':' . str_pad((string) $Minutes, 2, '0', STR_PAD_LEFT);
+                $DurationMinutes = $this->ResolveDurationMinutes($TimesheetEntry);
+                $DurationDisplay = $this->FormatDurationDisplay($DurationMinutes);
 
                 $TimesheetEntry->DurationDisplay = $DurationDisplay;
 
                 return $TimesheetEntry;
             });
+
+        // Today Worked Total Variables
+        $TodayWorkedMinutes = DB::table('timesheet')
+            ->where('user_id', $Request->user()->id)
+            ->whereDate('date', $CurrentDate)
+            ->where('project', '!=', 'Break')
+            ->get([
+                'time_start',
+                'time_end',
+                'duration',
+            ])
+            ->sum(function ($TimesheetEntry) {
+                return $this->ResolveDurationMinutes($TimesheetEntry);
+            });
+
+        $TodayWorkedDisplay = $this->FormatDurationDisplay($TodayWorkedMinutes);
 
         return view('timesheet', [
             'PageTitle' => $PageTitle,
@@ -255,6 +274,8 @@ class TimesheetController extends Controller
             'EditTimesheetButton' => $EditTimesheetButton,
             'DeleteTimesheetButton' => $DeleteTimesheetButton,
             'TimesheetDigitalClock' => $TimesheetDigitalClock,
+            'TimesheetTodayWorked' => $TimesheetTodayWorked,
+            'TodayWorkedDisplay' => $TodayWorkedDisplay,
             'TimesheetPageClass' => $TimesheetPageClass,
             'TimesheetPageMainClass' => $TimesheetPageMainClass,
             'TimesheetPageContentClass' => $TimesheetPageContentClass,
@@ -708,6 +729,60 @@ class TimesheetController extends Controller
             'ClockTimeClass' => $ClockTimeClass,
             'ClockDateClass' => $ClockDateClass,
         ];
+    }
+
+    protected function TimesheetTodayWorked(): array
+    {
+        // Today Worked Text Variables
+        $TodayWorkedLabel = 'Hours Worked Today';
+
+        // Today Worked Element Variables
+        $TodayWorkedWrapperClass = 'inline-flex min-w-[170px] flex-col items-center justify-center rounded-lg border border-slate-300 bg-white px-4 py-2 text-sm font-semibold text-slate-800 shadow-sm';
+        $TodayWorkedValueClass = 'text-base font-semibold tabular-nums tracking-wider';
+        $TodayWorkedLabelClass = 'text-xs font-medium text-slate-600 tabular-nums';
+
+        return [
+            'TodayWorkedLabel' => $TodayWorkedLabel,
+            'TodayWorkedWrapperClass' => $TodayWorkedWrapperClass,
+            'TodayWorkedValueClass' => $TodayWorkedValueClass,
+            'TodayWorkedLabelClass' => $TodayWorkedLabelClass,
+        ];
+    }
+
+    protected function ResolveDurationMinutes(object $TimesheetEntry): int
+    {
+        // Duration Variables
+        $StoredDurationMinutes = $TimesheetEntry->duration ?? null;
+
+        if ($StoredDurationMinutes !== null) {
+            return (int) $StoredDurationMinutes;
+        }
+
+        if (empty($TimesheetEntry->time_start) || empty($TimesheetEntry->time_end)) {
+            return 0;
+        }
+
+        try {
+            $StartTime = Carbon::createFromFormat('H:i', (string) $TimesheetEntry->time_start);
+            $EndTime = Carbon::createFromFormat('H:i', (string) $TimesheetEntry->time_end);
+        } catch (Throwable $Throwable) {
+            return 0;
+        }
+
+        if ($EndTime->lessThanOrEqualTo($StartTime)) {
+            return 0;
+        }
+
+        return $StartTime->diffInMinutes($EndTime);
+    }
+
+    protected function FormatDurationDisplay(int $DurationMinutes): string
+    {
+        // Duration Display Variables
+        $Hours = intdiv($DurationMinutes, 60);
+        $Minutes = $DurationMinutes % 60;
+
+        return $Hours . ':' . str_pad((string) $Minutes, 2, '0', STR_PAD_LEFT);
     }
 
     protected function SyncCategoryStatuses(int $UserId): void
