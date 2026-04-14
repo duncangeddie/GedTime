@@ -54,6 +54,34 @@
                                 @enderror
                             </div>
 
+                            <div class="{{ $SettingsFieldClass }}">
+                                <label for="{{ $CountryName }}" class="{{ $SettingsLabelClass }}">
+                                    {{ $CountryLabel }}
+                                </label>
+
+                                <select
+                                    id="{{ $CountryName }}"
+                                    name="{{ $CountryName }}"
+                                    class="{{ $SettingsInputClass }}"
+                                    required
+                                >
+                                    <option value="">Select Country</option>
+
+                                    @foreach ($CountryOptions as $CountryOption)
+                                        <option
+                                            value="{{ $CountryOption['Value'] }}"
+                                            @selected($CountryValue === $CountryOption['Value'])
+                                        >
+                                            {{ $CountryOption['Label'] }}
+                                        </option>
+                                    @endforeach
+                                </select>
+
+                                @error($CountryName)
+                                    <p class="{{ $SettingsErrorClass }}">{{ $message }}</p>
+                                @enderror
+                            </div>
+
                             <div class="{{ $SettingsActionsClass }}">
                                 <button type="submit" class="{{ $SettingsSubmitButtonClass }}">
                                     {{ $SettingsSubmitButtonLabel }}

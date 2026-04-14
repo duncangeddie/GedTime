@@ -30,7 +30,7 @@ class SettingsController extends Controller
         $SettingsCardTitleClass = 'SettingsCardTitle';
         $SettingsCardTextClass = 'SettingsCardText';
         $SettingsCardTitle = 'Settings';
-        $SettingsCardText = 'Set your start date below.';
+        $SettingsCardText = 'Set your start date and country below.';
 
         // Form Variables
         $SettingsFormClass = 'SettingsForm';
@@ -46,14 +46,31 @@ class SettingsController extends Controller
         // Field Variables
         $StartDateLabel = 'Start Date';
         $StartDateName = 'start_date';
+        $CountryLabel = 'Country';
+        $CountryName = 'country';
+        $CountryOptions = [
+            [
+                'Value' => 'South Africa',
+                'Label' => '🇿🇦 South Africa',
+            ],
+            [
+                'Value' => 'United Kingdom',
+                'Label' => '🇬🇧 United Kingdom',
+            ],
+            [
+                'Value' => 'Australia',
+                'Label' => '🇦🇺 Australia',
+            ],
+        ];
 
         // Settings Variables
         $ExistingSettings = DB::table('settings')
             ->where('user_id', $Request->user()->id)
             ->orderBy('id')
-            ->first(['id', 'start_date']);
+            ->first(['id', 'start_date', 'country']);
 
         $StartDateValue = old($StartDateName, $ExistingSettings->start_date ?? '');
+        $CountryValue = old($CountryName, $ExistingSettings->country ?? '');
 
         return view('settings', [
             'PageTitle' => $PageTitle,
@@ -82,6 +99,10 @@ class SettingsController extends Controller
             'StartDateLabel' => $StartDateLabel,
             'StartDateName' => $StartDateName,
             'StartDateValue' => $StartDateValue,
+            'CountryLabel' => $CountryLabel,
+            'CountryName' => $CountryName,
+            'CountryValue' => $CountryValue,
+            'CountryOptions' => $CountryOptions,
         ]);
     }
 
@@ -93,6 +114,7 @@ class SettingsController extends Controller
         // Validation Variables
         $ValidatedData = $Request->validate([
             'start_date' => ['required', 'date'],
+            'country' => ['required', 'in:South Africa,United Kingdom,Australia'],
         ]);
 
         // Settings Variables
@@ -106,11 +128,13 @@ class SettingsController extends Controller
                 ->where('id', $ExistingSettings->id)
                 ->update([
                     'start_date' => $ValidatedData['start_date'],
+                    'country' => $ValidatedData['country'],
                 ]);
         } else {
             DB::table('settings')->insert([
                 'user_id' => $User->id,
                 'start_date' => $ValidatedData['start_date'],
+                'country' => $ValidatedData['country'],
             ]);
         }
 
