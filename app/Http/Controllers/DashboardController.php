@@ -1,0 +1,18 @@
+<?php
+
+namespace App\Http\Controllers;
+
+use Illuminate\Contracts\View\View;
+
+class DashboardController extends Controller
+{
+    public function ViewDashboard(): View
+    {
+        // Page variables
+        $PageTitle = 'Dashboard';
+
+        return view('dashboard', [
+            'PageTitle' => $PageTitle,
+        ]);
+    }
+}

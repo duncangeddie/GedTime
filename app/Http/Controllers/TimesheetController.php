@@ -253,12 +253,16 @@ class TimesheetController extends Controller
         $TodayWorkedMinutes = DB::table('timesheet')
             ->where('user_id', $Request->user()->id)
             ->whereDate('date', $CurrentDate)
-            ->where('project', '!=', 'Break')
             ->get([
+                'project',
+                'category',
                 'time_start',
                 'time_end',
                 'duration',
             ])
+            ->reject(function ($TimesheetEntry) {
+                return $this->IsBreakTimesheetEntry($TimesheetEntry);
+            })
             ->sum(function ($TimesheetEntry) {
                 return $this->ResolveDurationMinutes($TimesheetEntry);
             });
@@ -747,6 +751,15 @@ class TimesheetController extends Controller
             'TodayWorkedValueClass' => $TodayWorkedValueClass,
             'TodayWorkedLabelClass' => $TodayWorkedLabelClass,
         ];
+    }
+
+    protected function IsBreakTimesheetEntry(object $TimesheetEntry): bool
+    {
+        // Break Detection Variables
+        $ProjectName = strtolower(trim((string) ($TimesheetEntry->project ?? '')));
+        $CategoryName = strtolower(trim((string) ($TimesheetEntry->category ?? '')));
+
+        return $ProjectName === 'break' || $CategoryName === 'break';
     }
 
     protected function ResolveDurationMinutes(object $TimesheetEntry): int

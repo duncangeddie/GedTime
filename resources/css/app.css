@@ -389,7 +389,8 @@
 .CategoriesPage,
 .TimesheetPage,
 .ReportsPage,
-.SettingsPage {
+.SettingsPage,
+.DashboardPage {
     min-height: 100vh;
     display: flex;
     flex-direction: column;
@@ -400,7 +401,8 @@
 .CategoriesPageMain,
 .TimesheetPageMain,
 .ReportsPageMain,
-.SettingsPageMain {
+.SettingsPageMain,
+.DashboardPageMain {
     flex: 1;
     background-color: var(--AppPageBackground);
 }
@@ -2328,4 +2330,16 @@
         width: auto;
         flex: 0 0 auto;
     }
+}
+
+/* Dashboard */
+
+.DashboardPage {
+    background: #ffffff;
+    min-height: 100vh;
+}
+
+.DashboardPageMain {
+    background: #ffffff;
+    min-height: 70vh;
 }

@@ -4,7 +4,7 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <title>Dashboard | GedTime</title>
+        <title>{{ $PageTitle }}</title>
 
         @vite(['resources/css/guest.css', 'resources/css/app.css', 'resources/js/app.js'])
     </head>
