@@ -76,6 +76,91 @@
                             @endif
                         </div>
                     </section>
+
+                    <section class="{{ $DashboardCalendarSectionClass }}">
+                        <div class="{{ $DashboardCalendarCardClass }}">
+                            <div>
+                                <h2 class="{{ $DashboardCalendarTitleClass }}">
+                                    {{ $DashboardCalendarTitle }}
+                                </h2>
+
+                                <p class="{{ $DashboardCalendarMonthLabelClass }}">
+                                    {{ $DashboardCalendarMonthLabel }}
+                                </p>
+                            </div>
+
+                            <div class="{{ $DashboardCalendarDayHeaderGridClass }}">
+                                @foreach ($DashboardCalendarDayHeaders as $DashboardCalendarDayHeader)
+                                    <div class="{{ $DashboardCalendarDayHeaderCellClass }}">
+                                        {{ $DashboardCalendarDayHeader }}
+                                    </div>
+                                @endforeach
+                            </div>
+
+                            <div class="{{ $DashboardCalendarGridClass }}">
+                                @foreach ($DashboardCalendarCells as $DashboardCalendarCell)
+                                    <div class="{{ $DashboardCalendarCell['CellClass'] }}">
+                                        @if ($DashboardCalendarCell['IsCurrentMonth'])
+                                            <span
+                                                class="{{ $DashboardCalendarCell['DayClass'] }}"
+                                                @if ($DashboardCalendarCell['IsToday']) aria-current="date" @endif
+                                            >
+                                                {{ $DashboardCalendarCell['DayLabel'] }}
+                                            </span>
+                                        @endif
+                                    </div>
+                                @endforeach
+                            </div>
+                        </div>
+                    </section>
+
+                    <section class="{{ $DashboardPublicHolidaySectionClass }}">
+                        <div class="{{ $DashboardPublicHolidayCardClass }}">
+                            <div>
+                                <h2 class="{{ $DashboardPublicHolidayTitleClass }}">
+                                    {{ $DashboardPublicHolidayTitle }}
+                                </h2>
+
+                                @if (!empty($DashboardSelectedCountryLabel))
+                                    <p class="{{ $DashboardPublicHolidayCountryLabelClass }}">
+                                        {{ $DashboardSelectedCountryLabel }}
+                                    </p>
+                                @endif
+                            </div>
+
+                            @if ($DashboardPublicHolidayMessage !== null)
+                                <div class="{{ $DashboardPublicHolidayMessageClass }}">
+                                    {{ $DashboardPublicHolidayMessage }}
+                                </div>
+                            @elseif (count($DashboardUpcomingPublicHolidays) > 0)
+                                <div class="{{ $DashboardPublicHolidayListClass }}">
+                                    @foreach ($DashboardUpcomingPublicHolidays as $DashboardUpcomingPublicHoliday)
+                                        <div class="{{ $DashboardPublicHolidayItemClass }}">
+                                            <div class="min-w-0">
+                                                <p class="{{ $DashboardPublicHolidayNameClass }}">
+                                                    {{ $DashboardUpcomingPublicHoliday['name'] }}
+                                                </p>
+                                            </div>
+
+                                            <div class="shrink-0 text-right">
+                                                <p class="{{ $DashboardPublicHolidayDateClass }}">
+                                                    {{ $DashboardUpcomingPublicHoliday['display_date'] }}
+                                                </p>
+
+                                                <p class="{{ $DashboardPublicHolidayDayClass }}">
+                                                    {{ $DashboardUpcomingPublicHoliday['day'] }}
+                                                </p>
+                                            </div>
+                                        </div>
+                                    @endforeach
+                                </div>
+                            @else
+                                <div class="{{ $DashboardPublicHolidayMessageClass }}">
+                                    No upcoming public holidays found.
+                                </div>
+                            @endif
+                        </div>
+                    </section>
                 </div>
             </main>
 
