@@ -9,9 +9,8 @@ return new class extends Migration
     public function up(): void
     {
         Schema::table('settings', function (Blueprint $Table) {
-            $Table->string('world_clock_one')->nullable()->after('country');
-            $Table->string('world_clock_two')->nullable()->after('world_clock_one');
-            $Table->string('world_clock_three')->nullable()->after('world_clock_two');
+            $Table->boolean('use_world_clocks')->default(false)->after('country');
+            $Table->unsignedTinyInteger('world_clock_count')->nullable()->after('use_world_clocks');
         });
     }
 
@@ -19,9 +18,8 @@ return new class extends Migration
     {
         Schema::table('settings', function (Blueprint $Table) {
             $Table->dropColumn([
-                'world_clock_one',
-                'world_clock_two',
-                'world_clock_three',
+                'use_world_clocks',
+                'world_clock_count',
             ]);
         });
     }

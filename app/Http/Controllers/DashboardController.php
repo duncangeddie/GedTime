@@ -30,16 +30,22 @@ class DashboardController extends Controller
 
         // Layout Variables
         $DashboardGridClass = 'grid grid-cols-1 gap-6 lg:grid-cols-2 lg:items-start';
+        $DashboardLeftColumnClass = 'flex flex-col gap-3';
         $DashboardChartSectionClass = 'w-full';
+        $DashboardWorldClockSectionClass = 'w-full';
         $DashboardRightColumnClass = 'flex flex-col gap-3';
         $DashboardCalendarSectionClass = 'w-full';
         $DashboardPublicHolidaySectionClass = 'w-full';
 
         // Pie Chart Variables
-        $DashboardProjectPieCardClass = 'flex h-[340px] flex-col rounded-2xl border border-slate-200 bg-white p-6 shadow-sm';
+        $DashboardProjectPieCardClass = 'flex h-[340px] flex-col rounded-2xl border border-slate-200 bg-white p-6 shadow-sm overflow-hidden';
         $DashboardProjectPieTitle = 'Project Hours';
-        $DashboardProjectPieChartWrapperClass = 'relative mx-auto mt-6 h-[140px] w-[140px] sm:h-[160px] sm:w-[160px] lg:h-[180px] lg:w-[180px]';
+        $DashboardProjectPieContentClass = 'mt-6 flex min-h-0 flex-1 items-center gap-6';
+        $DashboardProjectPieChartWrapperClass = 'relative h-[140px] w-[140px] shrink-0 sm:h-[160px] sm:w-[160px] lg:h-[170px] lg:w-[170px]';
         $DashboardProjectPieChartId = 'DashboardProjectPieChart';
+        $DashboardProjectPieKeyListClass = 'min-h-0 flex-1 space-y-2 overflow-y-auto pr-1';
+        $DashboardProjectPieKeyItemClass = 'flex items-center rounded-xl border border-slate-200 bg-slate-50 px-3 py-2';
+        $DashboardProjectPieKeyLabelClass = 'truncate text-sm font-medium text-slate-700';
         $DashboardProjectPieEmptyMessage = 'No timesheet data available yet.';
         $DashboardProjectPieTotalLabel = 'Total Tracked';
         $DashboardProjectPieTotalValueClass = 'rounded-xl bg-slate-100 px-3 py-2 text-right';
@@ -54,6 +60,43 @@ class DashboardController extends Controller
             '#f97316',
             '#6366f1',
             '#84cc16',
+        ];
+
+        // World Clock Card Variables
+        $DashboardWorldClockCardClass = 'flex flex-col rounded-2xl border border-slate-200 bg-white p-6 shadow-sm overflow-hidden';
+        $DashboardWorldClockTitle = 'World Clocks';
+        $DashboardWorldClockTitleClass = 'text-xl font-semibold text-slate-900';
+        $DashboardWorldClockContentClass = 'mt-6 flex flex-nowrap items-start justify-center gap-4';
+        $DashboardWorldClockItemClass = 'flex w-28 shrink-0 flex-col items-center justify-start';
+        $DashboardWorldClockFaceClass = 'relative flex h-24 w-24 items-center justify-center rounded-full border-4 border-slate-900 bg-white shadow-sm transition-colors duration-300';
+        $DashboardWorldClockHourMarkerContainerClass = 'pointer-events-none absolute inset-0';
+        $DashboardWorldClockHourNumberClass = 'absolute left-1/2 top-1/2 text-[10px] font-semibold text-slate-500 transition-colors duration-300';
+        $DashboardWorldClockHourMarkerRadius = '2.2rem';
+        $DashboardWorldClockHourHandClass = 'absolute bottom-1/2 left-1/2 z-10 h-7 w-1.5 origin-bottom rounded-full bg-slate-900 transition-colors duration-300';
+        $DashboardWorldClockMinuteHandClass = 'absolute bottom-1/2 left-1/2 z-10 h-9 w-1 origin-bottom rounded-full bg-slate-700 transition-colors duration-300';
+        $DashboardWorldClockSecondHandClass = 'absolute bottom-1/2 left-1/2 z-10 h-9 w-0.5 origin-bottom rounded-full bg-rose-500 transition-colors duration-300';
+        $DashboardWorldClockCenterDotClass = 'absolute z-20 h-3 w-3 rounded-full bg-slate-900 transition-colors duration-300';
+        $DashboardWorldClockLabelClass = 'mt-4 text-center text-sm font-semibold text-slate-900';
+        $DashboardWorldClockDateLabelClass = 'mt-1 text-center text-[11px] text-slate-500';
+        $DashboardWorldClockMessageClass = 'mt-6 rounded-xl border border-dashed border-slate-300 bg-slate-50 px-4 py-10 text-center text-sm text-slate-500';
+        $DashboardWorldClockDisabledMessage = 'World clocks are turned off in settings.';
+        $DashboardWorldClockEmptyMessage = 'No world clocks selected yet.';
+        $DashboardBaseTimeZone = config('app.timezone');
+
+        // World Clock Hour Marker Variables
+        $DashboardWorldClockHourMarkers = [
+            ['Label' => '12', 'Rotation' => 0],
+            ['Label' => '1', 'Rotation' => 30],
+            ['Label' => '2', 'Rotation' => 60],
+            ['Label' => '3', 'Rotation' => 90],
+            ['Label' => '4', 'Rotation' => 120],
+            ['Label' => '5', 'Rotation' => 150],
+            ['Label' => '6', 'Rotation' => 180],
+            ['Label' => '7', 'Rotation' => 210],
+            ['Label' => '8', 'Rotation' => 240],
+            ['Label' => '9', 'Rotation' => 270],
+            ['Label' => '10', 'Rotation' => 300],
+            ['Label' => '11', 'Rotation' => 330],
         ];
 
         // Calendar Variables
@@ -196,6 +239,57 @@ class DashboardController extends Controller
             ? trim((string) $DashboardSelectedCountry)
             : null;
 
+        $DashboardUseWorldClocks = (int) ($DashboardSettingsRow->use_world_clocks ?? 0);
+        $DashboardWorldClockCount = (int) ($DashboardSettingsRow->world_clock_count ?? 0);
+
+        // World Clock Data Variables
+        $DashboardWorldClockSelections = [
+            [
+                'TimeZone' => trim((string) ($DashboardSettingsRow->world_clock_one ?? '')),
+                'MinimumCount' => 1,
+            ],
+            [
+                'TimeZone' => trim((string) ($DashboardSettingsRow->world_clock_two ?? '')),
+                'MinimumCount' => 2,
+            ],
+            [
+                'TimeZone' => trim((string) ($DashboardSettingsRow->world_clock_three ?? '')),
+                'MinimumCount' => 3,
+            ],
+        ];
+
+        $DashboardWorldClockLabels = $this->WorldClockLabels();
+
+        $DashboardWorldClocks = collect($DashboardWorldClockSelections)
+            ->values()
+            ->filter(function (array $DashboardWorldClockSelection) use ($DashboardUseWorldClocks, $DashboardWorldClockCount) {
+                return $DashboardUseWorldClocks === 1
+                    && $DashboardWorldClockCount >= $DashboardWorldClockSelection['MinimumCount']
+                    && $DashboardWorldClockSelection['TimeZone'] !== '';
+            })
+            ->values()
+            ->map(function (array $DashboardWorldClockSelection, int $DashboardWorldClockIndex) use ($DashboardWorldClockLabels) {
+                // Clock Variables
+                $DashboardWorldClockTimeZone = $DashboardWorldClockSelection['TimeZone'];
+
+                return [
+                    'ClockId' => 'DashboardWorldClock' . ($DashboardWorldClockIndex + 1),
+                    'TimeZone' => $DashboardWorldClockTimeZone,
+                    'LocationLabel' => $DashboardWorldClockLabels[$DashboardWorldClockTimeZone]
+                        ?? $this->FormatWorldClockLocationLabel($DashboardWorldClockTimeZone),
+                ];
+            })
+            ->values()
+            ->all();
+
+        $DashboardWorldClockMessage = null;
+
+        if ($DashboardUseWorldClocks !== 1) {
+            $DashboardWorldClockMessage = $DashboardWorldClockDisabledMessage;
+        } elseif (count($DashboardWorldClocks) === 0) {
+            $DashboardWorldClockMessage = $DashboardWorldClockEmptyMessage;
+        }
+
         // Public Holiday Data Variables
         $DashboardPublicHolidayMessage = null;
         $DashboardUpcomingPublicHolidays = [];
@@ -227,14 +321,20 @@ class DashboardController extends Controller
             'DashboardFaviconHref' => $DashboardFaviconHref,
             'DashboardAppleTouchIconHref' => $DashboardAppleTouchIconHref,
             'DashboardGridClass' => $DashboardGridClass,
+            'DashboardLeftColumnClass' => $DashboardLeftColumnClass,
             'DashboardChartSectionClass' => $DashboardChartSectionClass,
+            'DashboardWorldClockSectionClass' => $DashboardWorldClockSectionClass,
             'DashboardRightColumnClass' => $DashboardRightColumnClass,
             'DashboardCalendarSectionClass' => $DashboardCalendarSectionClass,
             'DashboardPublicHolidaySectionClass' => $DashboardPublicHolidaySectionClass,
             'DashboardProjectPieCardClass' => $DashboardProjectPieCardClass,
             'DashboardProjectPieTitle' => $DashboardProjectPieTitle,
+            'DashboardProjectPieContentClass' => $DashboardProjectPieContentClass,
             'DashboardProjectPieChartWrapperClass' => $DashboardProjectPieChartWrapperClass,
             'DashboardProjectPieChartId' => $DashboardProjectPieChartId,
+            'DashboardProjectPieKeyListClass' => $DashboardProjectPieKeyListClass,
+            'DashboardProjectPieKeyItemClass' => $DashboardProjectPieKeyItemClass,
+            'DashboardProjectPieKeyLabelClass' => $DashboardProjectPieKeyLabelClass,
             'DashboardProjectPieEmptyMessage' => $DashboardProjectPieEmptyMessage,
             'DashboardProjectPieTotalLabel' => $DashboardProjectPieTotalLabel,
             'DashboardProjectPieTotalValue' => $DashboardProjectPieTotalValue,
@@ -243,6 +343,26 @@ class DashboardController extends Controller
             'DashboardProjectHoursDistribution' => $DashboardProjectHoursDistribution,
             'DashboardProjectHoursChartLabels' => $DashboardProjectHoursChartLabels,
             'DashboardProjectHoursChartMinutes' => $DashboardProjectHoursChartMinutes,
+            'DashboardWorldClockCardClass' => $DashboardWorldClockCardClass,
+            'DashboardWorldClockTitle' => $DashboardWorldClockTitle,
+            'DashboardWorldClockTitleClass' => $DashboardWorldClockTitleClass,
+            'DashboardWorldClockContentClass' => $DashboardWorldClockContentClass,
+            'DashboardWorldClockItemClass' => $DashboardWorldClockItemClass,
+            'DashboardWorldClockFaceClass' => $DashboardWorldClockFaceClass,
+            'DashboardWorldClockHourMarkerContainerClass' => $DashboardWorldClockHourMarkerContainerClass,
+            'DashboardWorldClockHourNumberClass' => $DashboardWorldClockHourNumberClass,
+            'DashboardWorldClockHourMarkerRadius' => $DashboardWorldClockHourMarkerRadius,
+            'DashboardWorldClockHourMarkers' => $DashboardWorldClockHourMarkers,
+            'DashboardWorldClockHourHandClass' => $DashboardWorldClockHourHandClass,
+            'DashboardWorldClockMinuteHandClass' => $DashboardWorldClockMinuteHandClass,
+            'DashboardWorldClockSecondHandClass' => $DashboardWorldClockSecondHandClass,
+            'DashboardWorldClockCenterDotClass' => $DashboardWorldClockCenterDotClass,
+            'DashboardWorldClockLabelClass' => $DashboardWorldClockLabelClass,
+            'DashboardWorldClockDateLabelClass' => $DashboardWorldClockDateLabelClass,
+            'DashboardWorldClockMessageClass' => $DashboardWorldClockMessageClass,
+            'DashboardWorldClocks' => $DashboardWorldClocks,
+            'DashboardWorldClockMessage' => $DashboardWorldClockMessage,
+            'DashboardBaseTimeZone' => $DashboardBaseTimeZone,
             'DashboardCalendarCardClass' => $DashboardCalendarCardClass,
             'DashboardCalendarTitle' => $DashboardCalendarTitle,
             'DashboardCalendarTitleClass' => $DashboardCalendarTitleClass,
@@ -276,6 +396,33 @@ class DashboardController extends Controller
         $RemainingMinutes = $Minutes % 60;
 
         return $Hours . 'h ' . str_pad((string) $RemainingMinutes, 2, '0', STR_PAD_LEFT) . 'm';
+    }
+
+    protected function WorldClockLabels(): array
+    {
+        return [
+            'Africa/Johannesburg' => '🇿🇦 Joburg',
+            'Europe/London' => '🇬🇧 London',
+            'Europe/Paris' => '🇫🇷 Paris',
+            'Europe/Berlin' => '🇩🇪 Berlin',
+            'America/New_York' => '🇺🇸 New York',
+            'America/Los_Angeles' => '🇺🇸 Los Angeles',
+            'America/Toronto' => '🇨🇦 Toronto',
+            'Asia/Dubai' => '🇦🇪 Dubai',
+            'Asia/Tokyo' => '🇯🇵 Tokyo',
+            'Asia/Singapore' => '🇸🇬 Singapore',
+            'Australia/Sydney' => '🇦🇺 Sydney',
+            'Pacific/Auckland' => '🇳🇿 Auckland',
+        ];
+    }
+
+    protected function FormatWorldClockLocationLabel(string $TimeZone): string
+    {
+        // Time Zone Variables
+        $TimeZoneParts = explode('/', $TimeZone);
+        $LocationPart = end($TimeZoneParts);
+
+        return str_replace('_', ' ', $LocationPart !== false ? $LocationPart : $TimeZone);
     }
 
     protected function GetUpcomingPublicHolidaysForCountry(string $Country, Carbon $Today): array
